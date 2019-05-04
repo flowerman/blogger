@@ -2,20 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Categories - A&amp;E Softlab LLC Blogger</title>
+<title>Jupyter notebook のインストール - A&amp;E Softlab LLC Blogger</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="keywords" content="jupyter">
-<meta property="og:type" content="website">
-<meta property="og:title" content="A&amp;E Softlab LLC Blogger">
-<meta property="og:url" content="https://flowerman.github.io/blogger/categories/index.html">
+    <meta name="description" content="近年、python が基軸言語・・　とまでは言わないが、その重要性は確固たる地位を築きつつあるが、それと同時に興味は持っているが、あるいは、始めてみたいとは思っているが、なかなか手がつけられないという相談をあちこちで受ける機会が多くなってきた。そういうわけで今回は、python を手軽に試してみたい、という向きに、jupyter notebook の環境構築の方法を紹介したい。と言うのも、pyt">
+<meta name="keywords" content="jupyter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jupyter notebook のインストール">
+<meta property="og:url" content="https://flowerman.github.io/blogger/2019/05/06/2019-05-1stweek/index.html">
 <meta property="og:site_name" content="A&amp;E Softlab LLC Blogger">
+<meta property="og:description" content="近年、python が基軸言語・・　とまでは言わないが、その重要性は確固たる地位を築きつつあるが、それと同時に興味は持っているが、あるいは、始めてみたいとは思っているが、なかなか手がつけられないという相談をあちこちで受ける機会が多くなってきた。そういうわけで今回は、python を手軽に試してみたい、という向きに、jupyter notebook の環境構築の方法を紹介したい。と言うのも、pyt">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://flowerman.github.io/blogger/images/og_image.png">
+<meta property="og:updated_time" content="2019-05-04T11:20:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A&amp;E Softlab LLC Blogger">
+<meta name="twitter:title" content="Jupyter notebook のインストール">
+<meta name="twitter:description" content="近年、python が基軸言語・・　とまでは言わないが、その重要性は確固たる地位を築きつつあるが、それと同時に興味は持っているが、あるいは、始めてみたいとは思っているが、なかなか手がつけられないという相談をあちこちで受ける機会が多くなってきた。そういうわけで今回は、python を手軽に試してみたい、という向きに、jupyter notebook の環境構築の方法を紹介したい。と言うのも、pyt">
 <meta name="twitter:image" content="https://flowerman.github.io/blogger/images/og_image.png">
 
 
@@ -90,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/blogger/">
             
-                <img src="/blogger/images/logo.svg" alt="A&amp;E Softlab LLC Blogger" height="28">
+                <img src="/blogger/images/logo.svg" alt="Jupyter notebook のインストール" height="28">
             
             </a>
         </div>
@@ -102,7 +106,7 @@
                 
                 <a class="navbar-item" href="/blogger/archives">Archives</a>
                 
-                <a class="navbar-item is-active" href="/blogger/categories">Categories</a>
+                <a class="navbar-item" href="/blogger/categories">Categories</a>
                 
                 <a class="navbar-item" href="/blogger/tags">Tags</a>
                 
@@ -135,19 +139,188 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Categories
-            </h3>
-            <ul class="menu-list">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-06T12:00:00.000Z">2019-05-06</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    24 minutes read (About 3625 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-            </ul>
+                Jupyter notebook のインストール
+            
+        </h1>
+        <div class="content">
+            <p>　近年、python が基軸言語・・　とまでは言わないが、その重要性は確固たる地位を築きつつあるが、それと同時に興味は持っているが、あるいは、始めてみたいとは思っているが、なかなか手がつけられないという相談をあちこちで受ける機会が多くなってきた。<br>そういうわけで今回は、python を手軽に試してみたい、という向きに、jupyter notebook の環境構築の方法を紹介したい。と言うのも、python の動作環境を構築するには・・　ネットで調べてみると、多くの情報を集めることが出来るが、あまりにも多くの情報が見つかり、体系的に整理するのが逆に困難あることが災いして手軽に試すということから遠ざかってしまう場合が多いように思われるからだ。<br>　たとえば、まず python の最新版をインストールした後、virtualenv を導入して、目的のバージョンの python を個別にインストールして仮想ディレクトリに封じ込めて環境汚染を防ぐ・・・　というような記事をそのままトレースしようとすると、また今度にしよう、と考えるのも無理はないと思う。<br>なので、たったいまここで書いた内容は、一度頭の中から除去して、とにかく python のセンテンスを何行か書いて（それも即時性のある、意味のある、手軽に目的を達成するような）試すことができる記事を目指したいと思う。  </p>
+<h3 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h3><ol>
+<li>python の実行環境である Anaconda のインストール</li>
+<li>jupyter notebook で python のコードを実行<br><br><br></li>
+</ol>
+<p>　さて、ここまで読んでいただいて、はて？ python のインストールという文脈で、jupyter notebook とは、いったい何なんだ？　という疑問を持たれた方も、当然多いと思う。<br>ここだけは、ひとまずガマンして頂いて、python をインストールするにあたって、jupyter notebook というものが出てくるのか・・　程度に理解してもらえれば充分だ。強いて言えば、python を実行するためのインタープリタを持つツールという位置づけで理解してもらえればよいと思う。とにかく python のコードを実行した後、理屈を理解していけば入り口としては単純だ。  </p>
+<p>　今回は最もシンプルに試すために、python環境を構築するOSとして Windows を想定する。  </p>
+<ol>
+<li>早速　<a href="https://www.anaconda.com/" target="_blank" rel="noopener">ここにアクセスして</a>　</li>
+<li>画面右上にある <a href="https://www.anaconda.com/distribution/" target="_blank" rel="noopener">Download</a> をクリックする </li>
+<li>画面中間部にあるWindowsのアイコンをクリックする</li>
+<li>画面下にたどって、Python 3.7 Version Download と書かれた下に、64-Bit、または、32-Bitの都合の良い方のインストーラをダウンロードする</li>
+</ol>
+<p>これで、pythonの動作環境のインストーラが手に入ったはずだ。<br>少し解説を加えておく。たったいまダウンロードしたインストーラは、pythonの動作環境に加えて、さまざまなライブラリ、ツールを含んだ anaconda と呼ばれるパッケージのインストーラを手に入れたことになる。詳しくは省略するが、これをOS上に展開することにより、pythonの具体的、かつ、興味深い一面をいとも簡単に実行に移すことが可能になる。  </p>
+<p>では、インストーラをダブルクリックしてインストールしてみよう。  </p>
+<div style="text-align: center;"><br><img width="400" alt src="/blogger/images/site/2019_05_1stweek_01.jpg"><br></div>
+
+<p>2019年3月現在の最新バージョンであることがわかる。<br>Next をクリックして次に進もう。<br><br></p>
+<div style="text-align: center;"><br><img width="400" alt src="/blogger/images/site/2019_05_1stweek_02.jpg"><br></div>
+
+<p>ライセンス条項を確認して I Agree をクリック。<br><br></p>
+<div style="text-align: center;"><br><img width="400" alt src="/blogger/images/site/2019_05_1stweek_03.jpg"><br></div>
+
+<p>認証の設定だが、自分だけで構わないと思われるので、Just Me をチェックして Next をクリック。<br><br></p>
+<div style="text-align: center;"><br><img width="400" alt src="/blogger/images/site/2019_05_1stweek_04.jpg"><br></div>
+
+<p>インストールするディレクトリは任意で構わない。<br>値を設定したら、Next をクリック。<br><br></p>
+<div style="text-align: center;"><br><img width="400" alt src="/blogger/images/site/2019_05_1stweek_05.jpg"><br></div>
+
+<p>ここは、Register Anaconda as my default Python 3.7 のほうにチェックを入れて、Install をクリック。ここでインストールが始まるので、その間にコーヒーでも淹れてリラックス。<br><br> </p>
+<p>さて、インストールが完了したら …<br><br></p>
+<h3 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h3><p>コマンドプロンプトを起動して、以下のコマンドを入力後 Enter をヒット。  </p>
+<pre><code>&gt; jupyter notebook
+</code></pre><p>その後、ブラウザで <a href="http://localhost:8888" target="_blank" rel="noopener">http://localhost:8888</a> にアクセス。<br>これで、jupyter notebook が起動した。これでひとつのハードルは越えた。おめでとう。  </p>
+<p>次に、画面右側にある New というプルダウンメニューが見えると思う。そこを選択して、表示されたメニューの中から Python 3 を選択すると、notebook が表示されると思う。まさにこれが、これから　python のコードを実行するにあたりさまざまなセンテンスを入力するノートブックだと思って欲しい。jupyter notebook は、pythonコードの実行を、このようにあたかもノートブックに記録するように保存し、ロードし、頭の中の試行錯誤を具現化するための抽象インターフェースだと考えればいいと思う。</p>
+<p>　使い方だが、簡単な説明だけを書く。<br>In [ ]: の右側に細長いボックスがあるが、これがセルと呼ばれる項目だ。この部分にコードを入力して実行すると Out[ ]： という形で結果が得られる。それだけだ。どうだろう。簡単じゃないか。<br>ひとつ簡単な例で試してみよう。<br>In[]: の右側のセルに、次のようなコードを入力して、Shiftキーを押しながら Enter をヒットしてみよう。 </p>
+<pre><code>In [ ]: 
+x = 2
+x * 2
+</code></pre><pre><code>Out [ ]:
+4
+</code></pre><p>上のような結果が得られれば OK。<br>これは、つまり、x という名前の変数を用意して 2 を代入している。<br>次に、x * 2 を実行する。<br>その結果 4 が得られた。<br>これで、python のコードが実行されたことになる。<br><br><br>素晴らしい！<br><br><br>しかし、これでは、あまり実用的ではないし掘り下げていくにはあまりにも単純すぎる。そこで、次はもう少し実用的で、かつ、高度でありながら python らしいシンプルな解法を試してみることにする。<br>それでは、例を下に示すが、サンプルコードを実行するにあたり、少し辛抱して、下記のコマンドを実行して欲しい。<br>なお、コマンドの実行にあたり、コマンドプロンプトをもうひとつ新たに立ち上げて実行すること。なぜなら、さきほど jupyter notebook を起動したDOSプロンプトはフォアグラウンドでpythonのプロセスが実行されているからだ。jupyter notebook のログが出力されているのが観察出来ると思う。したがって、別のコマンドプロンプトを起動して下記のコマンドを実行して欲しい。<br>実行するディレクトリは任意で構わない。  </p>
+<pre><code>&gt; pip install pandas-datareader
+</code></pre><p>　いまの段階ではこのコマンドの意味をわからなくても構わないので、とにかく実行してエラーがなく終了することを確認する。ちなみに、いま実行したコマンドは python の処理系に pandas-datareader というライブラリを導入する役割を実行したことになる。では、pandas-datareader とは何か？　と言うと、簡単に言えば日経平均株価を取得するものだ。  </p>
+<p>　次に、コード例を示す。さきほどと同じように、jupyter notebook 上で、新しいノートを新規作成して入力する。やり方は、New というプルダウンメニューで　Python 3 を選択する。すると新しいノートが作成されるので、In [ ]: の右側にあるセルに次のコードを入力する。  </p>
+<pre><code>In [ ]:
+import datetime
+import requests
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+import pandas_datareader.data as web
+</code></pre><p>　上記のコードの意味は、これから実行するコードのライブラリをimportすることにある。<br>いちばん下のコードが、さきほど導入した pandas-datareader をimportしているコードで、その他は anacondaパッケージ に備わっている標準ライブラリをimportしているコードだ。<br>ここまで入力したら、Shiftキーを押しながら Enterキーをヒット。<br>続いて …  </p>
+<pre><code>In [ ]:
+start = datetime.datetime(1970, 1, 4)
+end   = datetime.datetime(2019, 4, 26)
+
+# 必要に応じて設定  
+InsecureRequestWarning
+session = requests.Session()
+session.verify = False 
+
+df = web.DataReader(&quot;^N225&quot;, &quot;yahoo&quot;, start, end, session=session)
+</code></pre><p>上記のコードは、日経平均株価のデータを取得しているが、当該セクション冒頭で1970年1月4日から今年の4月26日までのデータを取得する設定をしている。<br><br></p>
+<pre><code>In [ ]:
+# indexを日付型に変換して、Columnのデータを取り出す ...
+date = pd.to_datetime(df.index)
+series = df[&apos;Close&apos;]
+
+# プロットする。
+plt.figure(figsize=(6,4));
+plt.plot_date(date, series, &apos;-&apos;);
+</code></pre><p>上記では、インデックスを日付型に変換して、時系列にデータが並ぶように設定した後、日経平均の終値を取り出しグラフにプロットしている。その結果、出力されたグラフが下記のとおり。<br><br></p>
+<div style="text-align: center;"><br><img width="400" alt src="/blogger/images/site/2019_05_1stweek_06.png"><br></div>
+
+<p>ちょうど、80年代も終わろうとしているあたりから90年代のはじめにかけてピークを迎えているのが見てとれるだろう。いわゆるバブル期である。<br>2009年ごろに底を打ち、その後徐々に上方基調になろうとしているように見えるが、本当にそうだろうか？　それはもっと多角的な統計解析を実行しないと、その判断はおそらく難しいと思われる。　　</p>
+<p>　このように python を使えば、思ったより簡単に情報の可視化が実行できることをわかって頂けたことだろうと思う。ここから先は、ぜひ、皆さんのセンスと実行力で掘り下げてほしいと思う。<br>なお、今回、インストールを試みた anacondaパッケージには、統計分析、数学的処理に関するライブラリが標準で備わっているので、そのおもしろさをシンプルに体験することが可能だ。  </p>
+<h3 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h3><ul>
+<li>現在 python の最新版は、バージョン 3.7 及び 2.7 の2つの系統が存在している。どちらの選択肢をとればよいのか？　に関しては、現時点では 3.7 にすること。それ以上、掘り下げた場合に必要に応じてメンテナンス体系を把握していけばよい。</li>
+<li>pythonをインストールするにあたり、anacondaパッケージをとくに推奨する。理由は、python周辺の体系や文化になれるまで悩む箇所を極力減らすためだ。</li>
+<li>pip install というコマンドは、anacondaパッケージに収録されていないライブラリを導入するための、いわゆるパッケージマネージャである。</li>
+</ul>
+<p>　今回の記事では、pythonのセンテンスに関してほとんど説明をしていない。それは、即効性のあるコードをまず実行してみて結果を得てみる … ということを重視したためだ。今回のコードを徐々に編集しつつ疑問を持った時点で調べるほうが興味を維持しやすいと思われるからだ。とくに pythonは、いろいろな情報にあふれているので、可視化という観点で試してみて、いろいろ調べてみる、というアプローチをとったほうが手を動かしやすいだろう .. という判断でもある。  </p>
+<p>今回は、ここまで。  </p>
+<p>Best Regards;</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/blogger/tags/jupyter/">jupyter</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/blogger/2019/04/20/2019-04-3rdweek/">
+                <span class="level-item">ブログを開設</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
                 
 
 
@@ -547,7 +720,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/blogger/">
                 
-                    <img src="/blogger/images/logo.svg" alt="A&amp;E Softlab LLC Blogger" height="28">
+                    <img src="/blogger/images/logo.svg" alt="Jupyter notebook のインストール" height="28">
                 
                 </a>
                 <p class="is-size-7">
