@@ -2,19 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: Cython - A&amp;E Softlab LLC Blogger</title>
+<title>検出方向とエッジ方向 - A&amp;E Softlab LLC Blogger</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="A&amp;E Softlab LLC Blogger">
-<meta property="og:url" content="https://flowerman.github.io/blogger/tags/Cython/index.html">
+    <meta name="description" content="XG-Xのエッジ位置計測ユニットのエッジ位置検出では、濃度の絶対値ではなく、エッジを検出する方向に対して垂直方向に、計測領域内の投影処理を実行した結果による平均濃度の変化量によって求まります。この変化量のことを「エッジ強度」と呼びます。つまり、相対的に変化量の多い部分付近に強度グラフのピークが現れ、逆に変化量に乏しく平坦性のある領域はグラフが沈んでいくことになるので、実際の観察画像と強度を表すグ">
+<meta name="keywords" content="XG-X">
+<meta property="og:type" content="article">
+<meta property="og:title" content="検出方向とエッジ方向">
+<meta property="og:url" content="https://flowerman.github.io/blogger/2019/05/17/2019-05-3rdweek/index.html">
 <meta property="og:site_name" content="A&amp;E Softlab LLC Blogger">
+<meta property="og:description" content="XG-Xのエッジ位置計測ユニットのエッジ位置検出では、濃度の絶対値ではなく、エッジを検出する方向に対して垂直方向に、計測領域内の投影処理を実行した結果による平均濃度の変化量によって求まります。この変化量のことを「エッジ強度」と呼びます。つまり、相対的に変化量の多い部分付近に強度グラフのピークが現れ、逆に変化量に乏しく平坦性のある領域はグラフが沈んでいくことになるので、実際の観察画像と強度を表すグ">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://flowerman.github.io/blogger/images/og_image.png">
+<meta property="og:updated_time" content="2019-05-17T04:59:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A&amp;E Softlab LLC Blogger">
+<meta name="twitter:title" content="検出方向とエッジ方向">
+<meta name="twitter:description" content="XG-Xのエッジ位置計測ユニットのエッジ位置検出では、濃度の絶対値ではなく、エッジを検出する方向に対して垂直方向に、計測領域内の投影処理を実行した結果による平均濃度の変化量によって求まります。この変化量のことを「エッジ強度」と呼びます。つまり、相対的に変化量の多い部分付近に強度グラフのピークが現れ、逆に変化量に乏しく平坦性のある領域はグラフが沈んでいくことになるので、実際の観察画像と強度を表すグ">
 <meta name="twitter:image" content="https://flowerman.github.io/blogger/images/og_image.png">
 
 
@@ -89,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/blogger/">
             
-                <img src="/blogger/images/logo.svg" alt="A&amp;E Softlab LLC Blogger" height="28">
+                <img src="/blogger/images/logo.svg" alt="検出方向とエッジ方向" height="28">
             
             </a>
         </div>
@@ -135,29 +140,18 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/blogger/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Cython</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-05-10T17:00:00.000Z">2019-05-10</time>
+                <time class="level-item has-text-grey" datetime="2019-05-17T16:00:00.000Z">2019-05-17</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    22 minutes read (About 3323 words)
+                    11 minutes read (About 1644 words)
                 </span>
                 
                 
@@ -166,56 +160,23 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/blogger/2019/05/10/2019-05-2ndweek/">Cython と pure Python 実行速度比較</a>
+                検出方向とエッジ方向
             
         </h1>
         <div class="content">
-            <p>　今回は、Cython と pure Python の比較の実験をしてみたいと思う。<br>Pyhonはとにかく遅いと言われる。型を持たないスクリプト言語なのだから仕方ないとは思うが、それでも遅いと言われる。そんな中でこの課題を解決しようとする文脈でよく登場するのが Cython ではあるが、では、どのくらいの差が出るのか？　そもそもパフォーマンスの違いは劇的なのか？　を実際に検証してみたいと思う。  </p>
-<p>　そもそも Cython とはいかなるものなのか？　を簡単に説明しておきたいと思う。  </p>
-<p>　Cythonは、低級言語である（C/C++）にコンパイル（つまりネイティブコードを生成して）パフォーマンスの課題に対して答えを出すというところに狙いがある。呼び出しは Python のメカニズムによるので、つまり、それはマジックコマンドを通じて、コンパイルされたコードが実行される、ということだ。<br>しかしながら、ほとんど Pythonコードに遜色のない状態の記述から呼び出したり、あるいは、しっかりと型指定を定義した状態で実行したり、と、とくにパイソニックなライブラリとのコンビネーションを企てようとすると一筋縄ではいかない側面を当然持っている。<br>　ここでは、その上澄みをとりつつも、ピュアなPythonとネイティブではこのくらいの差が出るのか、あるいは、そうでもないのか、という部分をちらっと垣間見てみたいと思う。  </p>
-<p>　それでは、テスト環境を構築する。<br>ふだん使用している環境には手を入れずに、テストをするだけの目的で環境を立ち上げて検証が終わればさっさと処分するのみの環境なので、ここから書くことはあまり本質的ではないので、先を急ぐ方は、もう少し後ろまで読み飛ばして大丈夫です。</p>
-<p>　今回のテストは <a href="https://hub.docker.com/r/jupyter/datascience-notebook/" target="_blank" rel="noopener">このイメージ</a> を使用して dockerコンテナを立ち上げる。<br>このイメージは、Anacondaで構築されているので、コンテナを作成すればそのままJupyter Notebookをすぐに使用可能。</p>
-<h4 id="Quick-Start-コンテナで環境を作成"><a href="#Quick-Start-コンテナで環境を作成" class="headerlink" title="Quick Start コンテナで環境を作成"></a>Quick Start コンテナで環境を作成</h4><p>では、<a href="https://hub.docker.com/r/jupyter/datascience-notebook/" target="_blank" rel="noopener">Docker Hub</a> よりイメージをダウンロードする。<br><figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull jupyter/datascience-notebook</span><br></pre></td></tr></table></figure></p>
-<p>コンテナを起動する前に同梱されている Python関係のバージョンをチェックする。<br><figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="hljs-keyword">run</span> --rm jupyter/datascience-notebook python --version</span><br><span class="line">Python <span class="hljs-number">3.7</span>.<span class="hljs-number">3</span></span><br><span class="line"></span><br><span class="line">$ docker <span class="hljs-keyword">run</span> --rm jupyter/datascience-notebook jupyter --version</span><br><span class="line"><span class="hljs-number">4.4</span>.<span class="hljs-number">0</span></span><br><span class="line"></span><br><span class="line">docker <span class="hljs-keyword">run</span> --rm --name test jupyter/datascience-notebook jupyter notebook --version</span><br><span class="line"><span class="hljs-number">5.7</span>.<span class="hljs-number">8</span></span><br><span class="line"></span><br><span class="line">docker <span class="hljs-keyword">run</span> --rm --name test jupyter/datascience-notebook cython --version</span><br><span class="line">Cython version <span class="hljs-number">0.29</span>.<span class="hljs-number">6</span></span><br></pre></td></tr></table></figure></p>
-<p>自身の環境ではこうなった。<br>Cythonもちゃんと入っている。したがって、このコンテナを起動すればそのままテストが実行できる。<br>では、起動する。  </p>
-<figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="hljs-keyword">run</span> -it --rm -p 8888:8888 jupyter/datascience-notebook</span><br></pre></td></tr></table></figure>
-<p>これでOK。<br>ここで注意しないといけないのは、–rm コマンドを発行しているので、コンテナをシャットダウンしたら、すべて削除される。つまり、テスト結果もなくなるので、ご注意を。逆に言えば、コンテナを落とせばテスト環境もきれいに片付く、ということだ。<br>起動後、ブラウザで localhost:8888 にアクセスすれば Jupyter Notebook が起動する。<br>docker-machine を使用されてる方であれば、おそらく 192.168.99.100/101:8888 みたいなアドレスになると思う。Jupyter Notebookを開くことが出来たら トークンの入力を求められると思うので、ログを読みだす必要がある。<br>以下のようなコマンドで標準出力にログが書き出されるので、そこからトークンを読み取って欲しい。  </p>
-<figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker logs &lt;コンテナID&gt;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<p>コンテナIDは、以下のコマンドで確認できる。<br><figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>では、早速 notebookを新規作成して … 以下のコードを入力する。</p>
-<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%load_ext Cython</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<p>ここから4種類の条件を違えて、コードを記述してゆく。<br>まずは、pure Pythonで記載したコード</p>
-<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def pure_python(n):</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    for i in range(n):</span><br><span class="line">        a, b = a + b, a</span><br><span class="line">    return a</span><br></pre></td></tr></table></figure>
-<p>pure Python での実行速度を計測した結果は以下のとおり。  </p>
-<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%timeit pure_python(5000)</span><br><span class="line">519 µs ± 5.93 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<p>次に、Cythonで記載したコード</p>
-<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%cython</span><br><span class="line"> </span><br><span class="line">def cython(n):</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    for i in range(n):</span><br><span class="line">        a, b = a + b, a</span><br><span class="line">    return a</span><br></pre></td></tr></table></figure>
-<p>そして、実行結果は …<br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%timeit cython(5000)</span><br><span class="line">419 µs ± 1.58 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</span><br></pre></td></tr></table></figure></p>
-<p>かすかに速くなってはいるという感じ。<br>次に、引数に型アノテーションを付与したCythonコード</p>
-<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%cython</span><br><span class="line"> </span><br><span class="line">def cython_typed_anotation(int n):</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    for i in range(n):</span><br><span class="line">        a, b = a + b, a</span><br><span class="line">    return a</span><br></pre></td></tr></table></figure>
-<p>実行結果は …<br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%timeit cython_typed_anotation359 µs ± 977 ns per loop (mean ± std. dev. of 7 runs, 1000 loops each)</span><br></pre></td></tr></table></figure></p>
-<p>また、かすかに速くなっていることが確認できるが、このコードブロック単体ではそれほど大きな効果を実感できるというイメージではない。<br>最後に、関数内の変数すべての型アノテーションを付与した Cythonコード<br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">%%cython</span><br><span class="line"> </span><br><span class="line">def cython_alltyped_anotetion(int n):</span><br><span class="line">    cdef int a,b,i</span><br><span class="line">    </span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    for i in range(n):</span><br><span class="line">        a, b = a + b, a</span><br><span class="line">    return a</span><br></pre></td></tr></table></figure></p>
-<p>実行結果は …<br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.84 µs ± 71.3 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)</span><br></pre></td></tr></table></figure></p>
-<p>ここにきて大きな変化があった。<br>わかりにくいので結果を下記にまとめる。<br>pure Python 519 µs ± 5.93 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)<br>Cython 419 µs ± 1.58 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)<br>Cython 引数に型指定 359 µs ± 977 ns per loop (mean ± std. dev. of 7 runs, 1000 loops each)<br>Cython すべての引数に型指定 2.84 µs ± 71.3 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)  </p>
-<p>　ここまでやるか … という内容ではあるが、すべての引数に型指定をした場合のインパクトはかなり大きいということがわかった。可読性を犠牲にするのに加えて、あまりパイソニックな感じがしないコードになってしまうが、これはこれで効果があるということがデータとしてわかった。<br>では、厳密に型指定を施したCythonコードとは他の条件、つまり、引数にのみ型指定をした場合と型指定をしない場合のCythonコードに関して効果は見込めないか？ というと、おそらく単体のコードブロックのみを使用するのであればほとんど意味はないと思われる。どのように使われる関数であるか？ という観点での踏み込みで判断すべきことだろう。Pythonには Numpy という優れたライブラリがあるので、これで達成できないようなあまり合理的ではないコードが、もしあった場合は、考える余地はあるかもしれない。  </p>
-<p>　今度は、もう少し具体性のあるコードブロックを使ってその差を検証してみようと思う。<br>画像解析をイメージして、2次元配列に対する離散畳み込みのフィルター処理で比較してみたいと思う。<br>想定としては、画像を表現するNumpyの二次元配列と畳み込みのカーネルを引数で与える関数を書いて条件をふって比較する形だ。画像サイズは100X100、カーネルは5X5 の条件。</p>
-<p>Numpyをimportしておく。<br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br></pre></td></tr></table></figure></p>
-<p>そして、まずは pure なコードブロックを想定した関数。<br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">def pure_filter(f, g):</span><br><span class="line">    vupper = img.shape[0]</span><br><span class="line">    wupper = img.shape[1]</span><br><span class="line">    supper = filter.shape[0]</span><br><span class="line">    tupper = filter.shape[1]</span><br><span class="line">    smidium = supper</span><br><span class="line">    tmidium = tupper</span><br><span class="line">    xupper = vupper + 2*smidium</span><br><span class="line">    yupper = wupper + 2*tmidium</span><br><span class="line">    # 出力画像を想定した配列</span><br><span class="line">    h = np.zeros([xupper, yupper], dtype=f.dtype)</span><br><span class="line">    # 畳み込み処理</span><br><span class="line">    for x in range(xupper):</span><br><span class="line">        for y in range(yupper):</span><br><span class="line">            # filter の各ピクセルに対する加算</span><br><span class="line">            s_from = max(smidum - x, -smidum)</span><br><span class="line">            s_to = min((xupper - x) - smidum, smidum + 1)</span><br><span class="line">            t_from = max(tmidum - y, -tmidum)</span><br><span class="line">            t_to = min((ymidum - y) - tmidum, tmidum + 1)</span><br><span class="line">            value = 0</span><br><span class="line">            for s in range(s_from, s_to):</span><br><span class="line">                for t in range(t_from, t_to):</span><br><span class="line">                    v = x - smidum + s</span><br><span class="line">                    w = y - tmidum + t</span><br><span class="line">                    value += filter[smidum - s, tmidum - t] * img[v, w]</span><br><span class="line">            h[x, y] = value</span><br><span class="line">    return h</span><br></pre></td></tr></table></figure></p>
-<p>そして、実行してみる。<br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N = 100</span><br><span class="line">img = np.arange(N*N, dtype=np.int).reshape((N,N))</span><br><span class="line">filter = np.arange(81, dtype=np.int).reshape((9, 9))</span><br><span class="line">%timeit -n2 -r3 pure_filer(img, filter)</span><br></pre></td></tr></table></figure></p>
-<p>結果は …<br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">414 ms ± 1.57 ms per loop (mean ± std. dev. of 3 runs, 2 loops each)</span><br></pre></td></tr></table></figure></p>
-<p>今度は、Cythonのアノテーションを意識したコードブロックを書いて実行してみる。<br>条件は同じ画像、同じカーネルフィルタの想定。<br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">%%cython</span><br><span class="line">import numpy as np</span><br><span class="line">cimport numpy as np</span><br><span class="line">DTYPE = np.int</span><br><span class="line">ctypedef np.int_t DTYPE_t</span><br><span class="line"></span><br><span class="line">def cython_filter(np.ndarray img, np.ndarray filter):</span><br><span class="line">    cdef int vupper = img.shape[0]</span><br><span class="line">    cdef int wupper = img.shape[1]</span><br><span class="line">    cdef int supper = filter.shape[0]</span><br><span class="line">    cdef int tupper = filter.shape[1]</span><br><span class="line">    cdef int smidium = supper // 2</span><br><span class="line">    cdef int tmidium = tupper // 2</span><br><span class="line">    cdef int xupper = vupper + 2*smidium</span><br><span class="line">    cdef int yupper = wupper + 2*tmidium</span><br><span class="line">    cdef np.ndarray h = np.zeros([xupper, yupper], dtype=DTYPE)</span><br><span class="line">    cdef int x, y, s, t, v, w</span><br><span class="line">    cdef int s_from, s_to, t_from, t_to</span><br><span class="line">    cdef DTYPE_t value</span><br><span class="line">    for x in range(xupper):</span><br><span class="line">        for y in range(yupper):</span><br><span class="line">            s_from = max(smidium - x, -smidium)</span><br><span class="line">            s_to = min((xupper - x) - smidium, smidium + 1)</span><br><span class="line">            t_from = max(tmidium - y, -tmidium)</span><br><span class="line">            t_to = min((yupper - y) - tmidium, tmidium + 1)</span><br><span class="line">            value = 0</span><br><span class="line">            for s in range(s_from, s_to):</span><br><span class="line">                for t in range(t_from, t_to):</span><br><span class="line">                    v = x - smidium + s</span><br><span class="line">                    w = y - tmidium + t</span><br><span class="line">                    value += filter[smidium - s, tmidium - t] * img[v, w]</span><br><span class="line">            h[x, y] = value</span><br><span class="line">    return h</span><br></pre></td></tr></table></figure></p>
-<p>結果は …<br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">N = 100</span><br><span class="line">f = np.arange(N*N, dtype=np.int).reshape((N,N))</span><br><span class="line">g = np.arange(81, dtype=np.int).reshape((9, 9))</span><br><span class="line">%timeit -n2 -r3 cython_filter(f, g)</span><br><span class="line"></span><br><span class="line">372 ms ± 301 µs per loop (mean ± std. dev. of 3 runs, 2 loops each)</span><br></pre></td></tr></table></figure></p>
-<p>並べてみる。<br>pure Python 414 ms ± 1.57 ms per loop (mean ± std. dev. of 3 runs, 2 loops each)<br>Cython すべての型に型指定 372 ms ± 301 µs per loop (mean ± std. dev. of 3 runs, 2 loops each)  </p>
-<p>あまり効果は出ていないということがわかった。<br>とはいえ、かなり素直なコードであるのでこういう答えが出たが、アルゴリズムの工夫ではもう少し詰められるのかどうか … は、検討課題だと思われる。<br>しかし、このぐらいであれば素直に OpenCV のほうがシンプルではあるだろう。<br><br><br></p>
-<h3 id="今週気になったニュース"><a href="#今週気になったニュース" class="headerlink" title="今週気になったニュース"></a>今週気になったニュース</h3><p><a href="https://visualstudio.microsoft.com/ja/" target="_blank" rel="noopener">Visual Stuio 2019</a><br>先月のニュースにはなってしまうが、正式版になりました。今回は、Github上のコードを学習した結果賢くなった IntelliCode と、ペアプログラミングを支援する Live Share が正式版になったということが大きな目玉ではあるが、地味なところでは、メモリの使用量をぐっと抑えて 1/4 にしたというところがある。  </p>
-<p><a href="https://android-developers.googleblog.com/2019/05/google-io-2019-empowering-developers-to-build-experiences-on-Android-Play.html" target="_blank" rel="noopener">Google I/O 2019 Kotlinファースト 強化を表明</a><br>この時期になると Google I/O ではあるが、現在、Android開発者の50％以上がKotlinユーザだそうだ。</p>
-<p><a href="https://devblogs.microsoft.com/commandline/announcing-wsl-2/" target="_blank" rel="noopener">Microsoft Build 2019 - WSL 2</a><br>同じく5月の Microsoft Build ではあるが、個人的にもっともぐっときたのがこのアナウンスでした。Windows Subsystem for Linux 2 となり、Linuxシステムコールのフル互換をうたっています。しかも、正式に Docker対応をアナウンスしました。仮想マシーンを用意することが大きな壁になっていた感はありますが、これは Docker にチャレンジする大きな機会かもしれませんよ！<br><br></p>
-<p>Best Regards;</p>
+            <p>　XG-Xのエッジ位置計測ユニットのエッジ位置検出では、濃度の絶対値ではなく、エッジを検出する方向に対して垂直方向に、計測領域内の投影処理を実行した結果による平均濃度の変化量によって求まります。<br>この変化量のことを「エッジ強度」と呼びます。つまり、相対的に変化量の多い部分付近に強度グラフのピークが現れ、逆に変化量に乏しく平坦性のある領域はグラフが沈んでいくことになるので、実際の観察画像と強度を表すグラフの相関が非常にわかりやすい形で示されます。<br>　計測領域が矩形の場合、検出条件でまず設定すべきポイントは検出方向とエッジ方向で、検出方向で画面に向かって右側にスキャンするのか？左側にスキャンするのか？を選択する必要があります。仮に右側に向かって検出方向を設定した場合、領域内を右側に向かってスキャンされますが、このとき検出したいエッジの変化を観察してエッジ方向を設定します。エッジ方向で設定すべきパラメータは、暗い部分から明るい部分に変化する場合、逆に明るい部分から暗い部分に変化する場合、あるいは、その両方を含むのか？によって3種類の設定が可能ですが、はじめの暗い部分から明るい部分に向けての方向を選択した場合は、あるエッジが存在したとして、その境界を境に左側が暗く、右側が明るいエッジを検出することになります。逆に明るい部分から暗い部分に向けての変化をとりたいのであれば、2番目の選択肢である明るい部分から暗い部分へのパラメータを設定します。そして3番目の両方を選択可能な設定にした場合は、変化の方向は考慮することなくエッジを検出したすべてのポイントが強度グラフのピークになって表現されます。<br>　今度は、計測領域が円弧や円周状の領域の場合ですが、検出方向の設定パラメータは矩形領域の場合とは違い、円周状の方向で決めることになります。スキャンの方向が時計回りであれば右側として設定し、逆に反時計回りであれば左方向への検出方向という表現になります。エッジ方向の考え方自体は計測領域が矩形の場合と同じように、暗いから部分から明るい部分への変化なのか？逆に明るい部分から暗い部分への変化のか？あるいはその両方を検出したいのか？ということになります。<br>また、計測領域が円周の場合はエッジスキャンを開始する角度を決めることが出来ます。ちょうど変化の方向が円周状をトレースして元に戻る形になるので、矩形を選択した場合とは異なり、開始位置を示さないと目的と達成できない場合があるからです。理由は、計測領域が矩形の場合は、スキャンしたいエリアを包括的に設定しますが、つまり、開始位置と終了位置と大きさがおのずと決まるのに対して円周状の場合は、1周してしまうので開始地点と終了始点がわからないので不便なことが起こり得ます。具体的には、スキャンをはじめたポイントに検出したいエッジが偶然存在した場合、そのエッジを探し当てることはできません。したがって、計測領域が円周状の場合は、開始角度を設定して、それも、さきの偶然がなるべく発生しないポイントを角度で示してあげる必要があります。ここで注意が必要ですが、角度0度になるのは、時計で言うと3時の方向になります。したがって、真下方向、時計で言えば6時の方向からスキャンを開始したい場合は、開始角度に 90 を設定することになります。</p>
+<p>　では、検出されたポイントがいくつか存在し、その中から任意の検出ポイントを選びたい場合はどうするのでしょうか？複数のポイントが検出された場合は、判定ラベルというのが自動的に振られ任意の番号を指定することにより本当に検出したいポイントを選び出すことが可能です。たとえば、画面に向かって左側から右側に向けて検出方向を設定したとします。複数の検出ポイントを見つけましたが、本当に欲しい検出ポイントは左側から2番目のエッジだったとします。その場合、判定ラベルで示すのは「1」です。したがって、判定ラベル1を設定することにより、左から2番目のエッジを検出できることになります。  </p>
+<p><br><br>Regards;  </p>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/blogger/tags/XG-X/">XG-X</a>
+                </div>
+            </div>
         </div>
         
         
@@ -225,9 +186,55 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/blogger/2019/05/10/2019-05-2ndweek/">
+                <span class="level-item">Cython と pure Python 実行速度比較</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -748,7 +755,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/blogger/">
                 
-                    <img src="/blogger/images/logo.svg" alt="A&amp;E Softlab LLC Blogger" height="28">
+                    <img src="/blogger/images/logo.svg" alt="検出方向とエッジ方向" height="28">
                 
                 </a>
                 <p class="is-size-7">

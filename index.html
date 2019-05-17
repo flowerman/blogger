@@ -141,6 +141,49 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-17T16:00:00.000Z">2019-05-17</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 minutes read (About 1644 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blogger/2019/05/17/2019-05-3rdweek/">検出方向とエッジ方向</a>
+            
+        </h1>
+        <div class="content">
+            <p>　XG-Xのエッジ位置計測ユニットのエッジ位置検出では、濃度の絶対値ではなく、エッジを検出する方向に対して垂直方向に、計測領域内の投影処理を実行した結果による平均濃度の変化量によって求まります。<br>この変化量のことを「エッジ強度」と呼びます。つまり、相対的に変化量の多い部分付近に強度グラフのピークが現れ、逆に変化量に乏しく平坦性のある領域はグラフが沈んでいくことになるので、実際の観察画像と強度を表すグラフの相関が非常にわかりやすい形で示されます。<br>　計測領域が矩形の場合、検出条件でまず設定すべきポイントは検出方向とエッジ方向で、検出方向で画面に向かって右側にスキャンするのか？左側にスキャンするのか？を選択する必要があります。仮に右側に向かって検出方向を設定した場合、領域内を右側に向かってスキャンされますが、このとき検出したいエッジの変化を観察してエッジ方向を設定します。エッジ方向で設定すべきパラメータは、暗い部分から明るい部分に変化する場合、逆に明るい部分から暗い部分に変化する場合、あるいは、その両方を含むのか？によって3種類の設定が可能ですが、はじめの暗い部分から明るい部分に向けての方向を選択した場合は、あるエッジが存在したとして、その境界を境に左側が暗く、右側が明るいエッジを検出することになります。逆に明るい部分から暗い部分に向けての変化をとりたいのであれば、2番目の選択肢である明るい部分から暗い部分へのパラメータを設定します。そして3番目の両方を選択可能な設定にした場合は、変化の方向は考慮することなくエッジを検出したすべてのポイントが強度グラフのピークになって表現されます。<br>　今度は、計測領域が円弧や円周状の領域の場合ですが、検出方向の設定パラメータは矩形領域の場合とは違い、円周状の方向で決めることになります。スキャンの方向が時計回りであれば右側として設定し、逆に反時計回りであれば左方向への検出方向という表現になります。エッジ方向の考え方自体は計測領域が矩形の場合と同じように、暗いから部分から明るい部分への変化なのか？逆に明るい部分から暗い部分への変化のか？あるいはその両方を検出したいのか？ということになります。<br>また、計測領域が円周の場合はエッジスキャンを開始する角度を決めることが出来ます。ちょうど変化の方向が円周状をトレースして元に戻る形になるので、矩形を選択した場合とは異なり、開始位置を示さないと目的と達成できない場合があるからです。理由は、計測領域が矩形の場合は、スキャンしたいエリアを包括的に設定しますが、つまり、開始位置と終了位置と大きさがおのずと決まるのに対して円周状の場合は、1周してしまうので開始地点と終了始点がわからないので不便なことが起こり得ます。具体的には、スキャンをはじめたポイントに検出したいエッジが偶然存在した場合、そのエッジを探し当てることはできません。したがって、計測領域が円周状の場合は、開始角度を設定して、それも、さきの偶然がなるべく発生しないポイントを角度で示してあげる必要があります。ここで注意が必要ですが、角度0度になるのは、時計で言うと3時の方向になります。したがって、真下方向、時計で言えば6時の方向からスキャンを開始したい場合は、開始角度に 90 を設定することになります。</p>
+<p>　では、検出されたポイントがいくつか存在し、その中から任意の検出ポイントを選びたい場合はどうするのでしょうか？複数のポイントが検出された場合は、判定ラベルというのが自動的に振られ任意の番号を指定することにより本当に検出したいポイントを選び出すことが可能です。たとえば、画面に向かって左側から右側に向けて検出方向を設定したとします。複数の検出ポイントを見つけましたが、本当に欲しい検出ポイントは左側から2番目のエッジだったとします。その場合、判定ラベルで示すのは「1」です。したがって、判定ラベル1を設定することにより、左から2番目のエッジを検出できることになります。  </p>
+<p><br><br>Regards;  </p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-05-10T17:00:00.000Z">2019-05-10</time>
                 
                 
@@ -470,7 +513,7 @@ plt.plot_date(date, series, <span class="string">'-'</span>);
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        3
+                        4
                     </p>
                 </div>
             </div>
@@ -490,7 +533,7 @@ plt.plot_date(date, series, <span class="string">'-'</span>);
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        3
+                        4
                     </p>
                 </div>
             </div>
@@ -588,7 +631,7 @@ plt.plot_date(date, series, <span class="string">'-'</span>);
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/blogger/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/blogger/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/blogger/tags/jupyter/" style="font-size: 10px;">jupyter</a>
+        <a href="/blogger/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/blogger/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/blogger/tags/XG-X/" style="font-size: 10px;">XG-X</a> <a href="/blogger/tags/jupyter/" style="font-size: 10px;">jupyter</a>
     </div>
 </div>
 
@@ -602,6 +645,25 @@ plt.plot_date(date, series, <span class="string">'-'</span>);
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/blogger/2019/05/17/2019-05-3rdweek/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blogger/images/thumbnail.svg" alt="検出方向とエッジ方向">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-17T16:00:00.000Z">2019-05-17</time></div>
+                    <a href="/blogger/2019/05/17/2019-05-3rdweek/" class="has-link-black-ter is-size-6">検出方向とエッジ方向</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -678,7 +740,7 @@ plt.plot_date(date, series, <span class="string">'-'</span>);
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -717,6 +779,13 @@ plt.plot_date(date, series, <span class="string">'-'</span>);
                 <div class="control">
                     <a class="tags has-addons" href="/blogger/tags/Docker/">
                         <span class="tag">Docker</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blogger/tags/XG-X/">
+                        <span class="tag">XG-X</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -753,6 +822,25 @@ plt.plot_date(date, series, <span class="string">'-'</span>);
         
         <article class="media">
             
+            <a href="/blogger/2019/05/17/2019-05-3rdweek/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blogger/images/thumbnail.svg" alt="検出方向とエッジ方向">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-17T16:00:00.000Z">2019-05-17</time></div>
+                    <a href="/blogger/2019/05/17/2019-05-3rdweek/" class="has-link-black-ter is-size-6">検出方向とエッジ方向</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blogger/2019/05/10/2019-05-2ndweek/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/blogger/images/thumbnail.svg" alt="Cython と pure Python 実行速度比較">
@@ -826,7 +914,7 @@ plt.plot_date(date, series, <span class="string">'-'</span>);
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -865,6 +953,13 @@ plt.plot_date(date, series, <span class="string">'-'</span>);
                 <div class="control">
                     <a class="tags has-addons" href="/blogger/tags/Docker/">
                         <span class="tag">Docker</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blogger/tags/XG-X/">
+                        <span class="tag">XG-X</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
