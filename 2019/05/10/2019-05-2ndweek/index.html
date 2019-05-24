@@ -170,9 +170,9 @@
 <p>　それでは、テスト環境を構築する。<br>ふだん使用している環境には手を入れずに、テストをするだけの目的で環境を立ち上げて検証が終わればさっさと処分するのみの環境なので、ここから書くことはあまり本質的ではないので、先を急ぐ方は、もう少し後ろまで読み飛ばして大丈夫です。</p>
 <p>　今回のテストは <a href="https://hub.docker.com/r/jupyter/datascience-notebook/" target="_blank" rel="noopener">このイメージ</a> を使用して dockerコンテナを立ち上げる。<br>このイメージは、Anacondaで構築されているので、コンテナを作成すればそのままJupyter Notebookをすぐに使用可能。</p>
 <h4 id="Quick-Start-コンテナで環境を作成"><a href="#Quick-Start-コンテナで環境を作成" class="headerlink" title="Quick Start コンテナで環境を作成"></a>Quick Start コンテナで環境を作成</h4><p>では、<a href="https://hub.docker.com/r/jupyter/datascience-notebook/" target="_blank" rel="noopener">Docker Hub</a> よりイメージをダウンロードする。<br><figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull jupyter/datascience-notebook</span><br></pre></td></tr></table></figure></p>
-<p>コンテナを起動する前に同梱されている Python関係のバージョンをチェックする。<br><figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="hljs-keyword">run</span> --rm jupyter/datascience-notebook python --version</span><br><span class="line">Python <span class="hljs-number">3.7</span>.<span class="hljs-number">3</span></span><br><span class="line"></span><br><span class="line">$ docker <span class="hljs-keyword">run</span> --rm jupyter/datascience-notebook jupyter --version</span><br><span class="line"><span class="hljs-number">4.4</span>.<span class="hljs-number">0</span></span><br><span class="line"></span><br><span class="line">docker <span class="hljs-keyword">run</span> --rm --name test jupyter/datascience-notebook jupyter notebook --version</span><br><span class="line"><span class="hljs-number">5.7</span>.<span class="hljs-number">8</span></span><br><span class="line"></span><br><span class="line">docker <span class="hljs-keyword">run</span> --rm --name test jupyter/datascience-notebook cython --version</span><br><span class="line">Cython version <span class="hljs-number">0.29</span>.<span class="hljs-number">6</span></span><br></pre></td></tr></table></figure></p>
+<p>コンテナを起動する前に同梱されている Python関係のバージョンをチェックする。<br><figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="hljs-keyword">run</span><span class="hljs-bash"> --rm jupyter/datascience-notebook python --version</span></span><br><span class="line">Python <span class="hljs-number">3.7</span>.<span class="hljs-number">3</span></span><br><span class="line"></span><br><span class="line">$ docker <span class="hljs-keyword">run</span><span class="hljs-bash"> --rm jupyter/datascience-notebook jupyter --version</span></span><br><span class="line"><span class="hljs-number">4.4</span>.<span class="hljs-number">0</span></span><br><span class="line"></span><br><span class="line">docker <span class="hljs-keyword">run</span><span class="hljs-bash"> --rm --name <span class="hljs-built_in">test</span> jupyter/datascience-notebook jupyter notebook --version</span></span><br><span class="line"><span class="hljs-number">5.7</span>.<span class="hljs-number">8</span></span><br><span class="line"></span><br><span class="line">docker <span class="hljs-keyword">run</span><span class="hljs-bash"> --rm --name <span class="hljs-built_in">test</span> jupyter/datascience-notebook cython --version</span></span><br><span class="line">Cython version <span class="hljs-number">0.29</span>.<span class="hljs-number">6</span></span><br></pre></td></tr></table></figure></p>
 <p>自身の環境ではこうなった。<br>Cythonもちゃんと入っている。したがって、このコンテナを起動すればそのままテストが実行できる。<br>では、起動する。  </p>
-<figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="hljs-keyword">run</span> -it --rm -p 8888:8888 jupyter/datascience-notebook</span><br></pre></td></tr></table></figure>
+<figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="hljs-keyword">run</span><span class="hljs-bash"> -it --rm -p 8888:8888 jupyter/datascience-notebook</span></span><br></pre></td></tr></table></figure>
 <p>これでOK。<br>ここで注意しないといけないのは、–rm コマンドを発行しているので、コンテナをシャットダウンしたら、すべて削除される。つまり、テスト結果もなくなるので、ご注意を。逆に言えば、コンテナを落とせばテスト環境もきれいに片付く、ということだ。<br>起動後、ブラウザで localhost:8888 にアクセスすれば Jupyter Notebook が起動する。<br>docker-machine を使用されてる方であれば、おそらく 192.168.99.100/101:8888 みたいなアドレスになると思う。Jupyter Notebookを開くことが出来たら トークンの入力を求められると思うので、ログを読みだす必要がある。<br>以下のようなコマンドで標準出力にログが書き出されるので、そこからトークンを読み取って欲しい。  </p>
 <figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker logs &lt;コンテナID&gt;</span><br></pre></td></tr></table></figure>
 <p><br></p>
@@ -329,7 +329,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -447,7 +447,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/blogger/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/blogger/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/blogger/tags/XG-X/" style="font-size: 10px;">XG-X</a> <a href="/blogger/tags/jupyter/" style="font-size: 10px;">jupyter</a>
+        <a href="/blogger/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/blogger/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/blogger/tags/XG-X/" style="font-size: 20px;">XG-X</a> <a href="/blogger/tags/jupyter/" style="font-size: 10px;">jupyter</a>
     </div>
 </div>
 
@@ -461,6 +461,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/blogger/2019/05/24/2019-05-4thweek/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blogger/images/thumbnail.svg" alt="多段位置補正の方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-24T15:00:00.000Z">2019-05-24</time></div>
+                    <a href="/blogger/2019/05/24/2019-05-4thweek/" class="has-link-black-ter is-size-6">多段位置補正の方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -556,7 +575,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -602,7 +621,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blogger/tags/XG-X/">
                         <span class="tag">XG-X</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -638,6 +657,25 @@
         
         <article class="media">
             
+            <a href="/blogger/2019/05/24/2019-05-4thweek/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blogger/images/thumbnail.svg" alt="多段位置補正の方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-24T15:00:00.000Z">2019-05-24</time></div>
+                    <a href="/blogger/2019/05/24/2019-05-4thweek/" class="has-link-black-ter is-size-6">多段位置補正の方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blogger/2019/05/17/2019-05-3rdweek/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/blogger/images/thumbnail.svg" alt="検出方向とエッジ方向">
@@ -730,7 +768,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -776,7 +814,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blogger/tags/XG-X/">
                         <span class="tag">XG-X</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 

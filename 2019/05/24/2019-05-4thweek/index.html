@@ -2,23 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>ブログを開設 - A&amp;E Softlab LLC Blogger</title>
+<title>多段位置補正の方法 - A&amp;E Softlab LLC Blogger</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="ブログを開設。 モチベーション　ここでは、日々蓄積される（本当に蓄積されるはずだ！）ナレッジやデータを書き留めるための、一種の備忘録、あるいは、記録として機能することになる。したがって、出来るだけサクサク書くことが出来ることが望ましい。もっと言えば、体裁の細かな微調整などに余計な神経をもっていかれたくない .. という思惑があって、もちろん、デザイン的な観点で言えば、そういうわけにもいかないことは">
+    <meta name="description" content="今回はXG-Xの VisionEditor を使った多段位置補正の実例を紹介したいと思います。多段位置補正というのは、複数の画像に対してX軸方向とY軸方向にズレがあるような場合、補正をした後にいろいろな処理や計測をしたい場合に用いられる基本的な構成回路です。   　では、まず下記のような2枚の画があると想定します。     画像Aと画像Bでは微妙にX軸方向とY方向がズレていることがわかると思いま">
+<meta name="keywords" content="XG-X">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ブログを開設">
-<meta property="og:url" content="https://flowerman.github.io/blogger/2019/04/20/2019-04-3rdweek/index.html">
+<meta property="og:title" content="多段位置補正の方法">
+<meta property="og:url" content="https://flowerman.github.io/blogger/2019/05/24/2019-05-4thweek/index.html">
 <meta property="og:site_name" content="A&amp;E Softlab LLC Blogger">
-<meta property="og:description" content="ブログを開設。 モチベーション　ここでは、日々蓄積される（本当に蓄積されるはずだ！）ナレッジやデータを書き留めるための、一種の備忘録、あるいは、記録として機能することになる。したがって、出来るだけサクサク書くことが出来ることが望ましい。もっと言えば、体裁の細かな微調整などに余計な神経をもっていかれたくない .. という思惑があって、もちろん、デザイン的な観点で言えば、そういうわけにもいかないことは">
+<meta property="og:description" content="今回はXG-Xの VisionEditor を使った多段位置補正の実例を紹介したいと思います。多段位置補正というのは、複数の画像に対してX軸方向とY軸方向にズレがあるような場合、補正をした後にいろいろな処理や計測をしたい場合に用いられる基本的な構成回路です。   　では、まず下記のような2枚の画があると想定します。     画像Aと画像Bでは微妙にX軸方向とY方向がズレていることがわかると思いま">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://flowerman.github.io/blogger/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-04T11:22:41.000Z">
+<meta property="og:updated_time" content="2019-05-24T06:12:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ブログを開設">
-<meta name="twitter:description" content="ブログを開設。 モチベーション　ここでは、日々蓄積される（本当に蓄積されるはずだ！）ナレッジやデータを書き留めるための、一種の備忘録、あるいは、記録として機能することになる。したがって、出来るだけサクサク書くことが出来ることが望ましい。もっと言えば、体裁の細かな微調整などに余計な神経をもっていかれたくない .. という思惑があって、もちろん、デザイン的な観点で言えば、そういうわけにもいかないことは">
+<meta name="twitter:title" content="多段位置補正の方法">
+<meta name="twitter:description" content="今回はXG-Xの VisionEditor を使った多段位置補正の実例を紹介したいと思います。多段位置補正というのは、複数の画像に対してX軸方向とY軸方向にズレがあるような場合、補正をした後にいろいろな処理や計測をしたい場合に用いられる基本的な構成回路です。   　では、まず下記のような2枚の画があると想定します。     画像Aと画像Bでは微妙にX軸方向とY方向がズレていることがわかると思いま">
 <meta name="twitter:image" content="https://flowerman.github.io/blogger/images/og_image.png">
 
 
@@ -93,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/blogger/">
             
-                <img src="/blogger/images/logo.svg" alt="ブログを開設" height="28">
+                <img src="/blogger/images/logo.svg" alt="多段位置補正の方法" height="28">
             
             </a>
         </div>
@@ -144,13 +145,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-20T08:40:16.000Z">2019-04-20</time>
+                <time class="level-item has-text-grey" datetime="2019-05-24T15:00:00.000Z">2019-05-24</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    26 minutes read (About 3836 words)
+                    14 minutes read (About 2114 words)
                 </span>
                 
                 
@@ -159,48 +160,63 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                ブログを開設
+                多段位置補正の方法
             
         </h1>
         <div class="content">
-            <p>ブログを開設。</p>
-<h3 id="モチベーション"><a href="#モチベーション" class="headerlink" title="モチベーション"></a>モチベーション</h3><p>　ここでは、日々蓄積される（本当に蓄積されるはずだ！）ナレッジやデータを書き留めるための、一種の備忘録、あるいは、記録として機能することになる。<br>したがって、出来るだけサクサク書くことが出来ることが望ましい。<br>もっと言えば、体裁の細かな微調整などに余計な神経をもっていかれたくない .. という思惑があって、もちろん、デザイン的な観点で言えば、そういうわけにもいかないことは重々理解をしている。<br>　そうではなく、より本質にスコープしてここの記事を書いていくということが大きな目的でもある。<br>そういうわけで、ストレスフリーにさらっと書き進めるためには、現状では Markdown 一択という選択から始めた。<br>　いまは、CMSも多岐に渡り、高機能の恩恵を受けることが可能だが、本当は、もっとシンプルに簡単に意見を発信できれば、もっと便利なはずだ。<br>そこで、そもそも静的なサイト（データそのもの）を記述することが出来れば、目的と合致する。<br>　実際、世の中はある意味では原点回帰のようなことも起こっている。Wordpress や Drupal のようなかなり優秀なCMSでサイトを運営する方向と、インターネット黎明期のような静的サイトへの回帰。後者は非常におもしろい分野へと変化してきている。これは、ある意味、Jam Stack分野への回帰としても捉えることが出来るだろう。たとえば、データベースがバックエンドに存在しなければ、そもそもセキュリティ面でのアドバンテージを稼ぐことが、非常にシンプルになり得る。同時に、更新の手間暇の煩雑さからの開放という点でも大きな効果が得られる。<br>という動機付けのもとに、この備忘録は、Hexoというパッケージでサイトを構築し、その結果をGithubでホストしている。ブログは、Githubの中の GitPages でホストされるというしくみをとっている。<br>　執筆環境は Visual Studio Code から、HexoパッケージをインストールしたLinuxサーバへSSHで接続してMarkdownを快適に書き進めることが出来るようなイメージ。</p>
-<p>　プラットホーム自体は、Node.js があれば、さくっと立ち上がるものでもあるが、そのしくみも含めて構築手順書的な観点で、あるいは、備忘録という意味で、本サイトを公開するまでの流れを書いておく。</p>
-<h3 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h3><h4 id="1、hexo環境の構築"><a href="#1、hexo環境の構築" class="headerlink" title="1、hexo環境の構築"></a>1、hexo環境の構築</h4><p>　すでにNode環境があれば別だが、今回は Docker でオートメーションを達成したい。<br>あるいは、地道に環境を構築してもまったく構わない。その際、OSは Windows, Mac, Linux を問わない。Nodeの実行環境が手に入ればプラットホームは問わない。  </p>
-<p>以下に、Dockerfile の内容を示す。</p>
-<figure class="highlight dockerfile hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">FROM</span> ubuntu:<span class="hljs-number">16.04</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># proxy ここは必要に応じて</span></span><br><span class="line"><span class="hljs-comment">#ENV https_proxy="http://name:password@proxy:8080/"</span></span><br><span class="line"><span class="hljs-comment">#ENV http_proxy="http://name:password@proxy:8080/"</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># OpenSSH</span></span><br><span class="line"><span class="hljs-keyword">RUN</span> apt-get update &amp;&amp; apt-get install -y \</span><br><span class="line">    openssh-server</span><br><span class="line"><span class="hljs-keyword">RUN</span> mkdir /var/run/sshd</span><br><span class="line"><span class="hljs-keyword">RUN</span> echo 'root:root' | chpasswd</span><br><span class="line"><span class="hljs-keyword">RUN</span> sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># SSH ログイン</span></span><br><span class="line"><span class="hljs-keyword">RUN</span> sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">ENV</span> NOTVISIBLE <span class="hljs-string">"in users profile"</span></span><br><span class="line"><span class="hljs-keyword">RUN</span> echo "export VISIBLE=now" &gt;&gt; /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 一般ユーザを作成して、Node.jsのリポジトリからステーブルを選択してインストール</span></span><br><span class="line"><span class="hljs-keyword">RUN</span> apt-get install -y git less vim sudo</span><br><span class="line"><span class="hljs-keyword">RUN</span> apt-get install -y nodejs npm</span><br><span class="line"><span class="hljs-keyword">RUN</span> npm install n -g</span><br><span class="line"><span class="hljs-keyword">RUN</span> n stable</span><br><span class="line"><span class="hljs-keyword">RUN</span> apt purge -y nodejs npm</span><br><span class="line"><span class="hljs-keyword">RUN</span> n 11.2.0</span><br><span class="line"><span class="hljs-keyword">RUN</span> useradd -m aande</span><br><span class="line"><span class="hljs-keyword">RUN</span> echo 'aande:aande' | chpasswd</span><br><span class="line"><span class="hljs-keyword">RUN</span> usermod -aG sudo aande</span><br><span class="line"><span class="hljs-keyword">RUN</span> chsh -s /bin/bash aande</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Hexo</span></span><br><span class="line"><span class="hljs-keyword">RUN</span> npm install -g \ </span><br><span class="line">    hexo-cli</span><br><span class="line"><span class="hljs-keyword">RUN</span> npm install \</span><br><span class="line">    hexo-deployer-git --save \</span><br><span class="line">    hexo-admin --save</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># SSH、Webサーバ、Adminサーバ公開用のポート</span></span><br><span class="line"><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">22</span> <span class="hljs-number">4000</span> <span class="hljs-number">8080</span></span><br><span class="line"><span class="hljs-keyword">CMD</span> ["/usr/sbin/sshd", "-D"]</span><br></pre></td></tr></table></figure>
-<p>　今回は、OSに Ubuntu16.04 を指定した。<br>簡単に解説を加えると、はじめのレイヤーでOpenSSHのインストールとroot権限を設定している。<br>　Dockerの特性として何層かのレイヤーでビルドを積むことにあるので、細かく（あまり細かすぎても、あるいは、薄すぎても別の弊害を生みが …）層を重ねることによりビルド時間の短縮効果を得ることが出来る。<br>次に、Node.jsをセットアップしている。ここでインストールしている Node.js, npm の目的は、パッケージマネージャを通じて n package を導入することにある。Windowsで言えば nodist のような役割で、これによりどのバージョンの Node.js をインストールして使用するか、を選択可能としている。<br>　事前の調査で現在の Node.js の Stable/LTS を確認して、バージョンを選択してインストールしている。ここまでのコードの実行後は、目的の Node.js がインストールされたので、事前にインストールした（つまり、n package を導入することを目的とした）バージョンは削除している。もちろん削除しなくても構わない。とくに環境汚染（実際に汚染があるわけではないが）の類の問題に関してナーバスな方は、きれいしに整理したほうがよいことは言うまでもない。  </p>
-<p>ここで、n package の説明を簡単に。<br>別のバージョンの Node.js のインストール、管理がシンプルになるので、そういった目的の場合は、以下のコマンドを実行する。</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ sudo n 10.12.0</span><br><span class="line">$ node -v</span><br><span class="line">v10.12.0</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 上記のコマンド実行により、バージョン 10.12.0 に切り替わった。  </span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># また、エイリアスも使用できる。</span></span><br><span class="line"><span class="hljs-comment"># 下記は、LTSの選択。</span></span><br><span class="line">$ sudo n lts</span><br><span class="line">$ node -v</span><br><span class="line">v10.15.3</span><br></pre></td></tr></table></figure>
-<p>さて、話が横道に逸れてしまったが、元に戻す。<br>次に一般ユーザの設定をして、次が本筋の Hexo のインストール。<br>hexo-cli をグローバルインストールをして、続いて Githubデプロイ用に必要な hexo-deployer-git をインストールしている。もちろん、gitコマンドでデプロイ（というか、Push）するのであれば、それでも構わない。次にセットアップする hexo-admin は、ブログの作成をブラウザ上から実行出来るようにするための、いわゆるダッシュボードのようなもので、無理にインストールする必要はない。今回も、記事の作成は、Visual Studio Code でサクサク … というのが主目的なので、使用する予定はない。ただ、一応、関連パッケージということで紹介をしてみた。</p>
-<p>最後にポートを export しているが、これは言うまでもなく、SSH用に22番、ブログ表示を4000番（つまり、デバッグ用の … というか、ローカル表示確認用のWebサーバ役と、前段で説明したダッシュボード表示のために8080番を開けている。<br>Dockerfileに関する説明は以上。</p>
-<p>次いで、上記の Dockerfile に基づいて、Dockerイメージをビルドする。<br>イメージの名前は任意。  </p>
-<figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker build -t ssh-node-sandbox:latest .</span><br></pre></td></tr></table></figure>
-<p>出来上がったイメージからコンテナを生成する。</p>
-<figure class="highlight docker hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="hljs-keyword">run</span><span class="hljs-bash"> -d \</span></span><br><span class="line"><span class="hljs-bash">      -p 20022:22 -p 4000:4000 -p 8080:8080 \</span></span><br><span class="line"><span class="hljs-bash">      --name ssh-hexo-blogger ssh-node-sandbox</span></span><br></pre></td></tr></table></figure>
-<p>これで dockerコンテナが起動した。<br>実行されているか見てみよう。  </p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps</span><br><span class="line">b3436e362b47        ssh-node-sandbox    &quot;/usr/sbin/sshd -D&quot;   26 hours ago        Up 2 hours</span><br><span class="line">       0.0.0.0:4000-&gt;4000/tcp, 0.0.0.0:8080-&gt;8080/tcp, 0.0.0.0:20022-&gt;22/tcp   ssh-hexo-blogger</span><br></pre></td></tr></table></figure>
-<p>OK！</p>
-<p>では、さっそくコンテナにSSHで入ってブログサイトを構築してみるが、その前に Visual Studio Code にSSHの拡張プラグインをセットアップする。<br>もちろん、ほかのSSHクライアントで接続してLinux上のVimなどのエディタを使用しても構わないが、ここは、Visual Studio Code の快適さを選択したい。<br>選択したのは SSH FS を使用する。  </p>
-<h4 id="2、ブログサイトの構築"><a href="#2、ブログサイトの構築" class="headerlink" title="2、ブログサイトの構築"></a>2、ブログサイトの構築</h4><p>コンテナに入ったら、以下の手続きでブログサイトを構築する。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 任意のディレクトリに移動して、そこをワークスペースとする。</span><br><span class="line"># ここから Hexoコマンドを実行して、ブログサイトを構築する。</span><br><span class="line">$ hexo init blog</span><br><span class="line"># 最後の blog がサイト名となる。もちろん任意でOK。</span><br><span class="line"></span><br><span class="line"># 作成したサイト用ディレクトリに移動する。</span><br><span class="line">$ cd blog</span><br><span class="line"></span><br><span class="line"># ここで、ディレクトリ内のオーダーを見ると package.json があるはずなので、その中にリストされているライブラリを導入する。やり方は簡単だ。以下の1行のコマンドを実行するのみ。</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>これで、ブログサイトの雛形が展開された。<br>さっそく記事を書いてみる。  </p>
-<h4 id="3、記事の作成"><a href="#3、記事の作成" class="headerlink" title="3、記事の作成"></a>3、記事の作成</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;記事の名前&quot;</span><br></pre></td></tr></table></figure>
-<p>上の記事の名前は任意。<br>ページのテンプレートが作成されたので、おもむろに記事を書く。記事を書き上げたら、以下のコマンドでサーバを起動する。  </p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>これで、ローカル環境で書いた記事を確認出来る。<br>ブラウザで localhost:4000 にアクセスする。<br>いま、書き上げた記事が表示されるはずだ。<br>dockerのホストに docker-machine を使用している場合は、おそらく、192.168.99.100:4000 のようなアドレスになるはずなので、ここはケアレスミスのポイント。慌てずに確認。<br>この部分は、dockerのホストが何であれ、WindowsもMac, あるいは Linux でも変わりはない。  </p>
-<p>どうだろうか？<br>これで簡単にブログサイトを、ローカル環境ではあるが構築出来てしまった。これだけでも簡単に目的が達成できたことが実感出来るだろう。しかし、ここまでが前段で、残りのデプロイがある。  </p>
-<h4 id="4、デプロイ"><a href="#4、デプロイ" class="headerlink" title="4、デプロイ"></a>4、デプロイ</h4><p>最後のプロセスまで辿り着いた。<br>まずは、以下のコマンドを初期に覚えておくとよいかもしれない。　　</p>
-<p>はじめは、以下の generate コマンド。  </p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line"># または</span><br><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-<p>これは公開用のリソースを、asset も含めて publicフォルダ に生成するためのコマンド。　　<br>つまり、HTMLコードや公開に必要な画像などのファイル群、あるいは css なども含めて、出力される。このHexoソリューションのディレクトリ構成を見ると、いま作成中のドキュメントは source 配下のサブフォルダに存在するはずだ。このソースがビルドされた後、publicフォルダに公開用の静的セットとして生成されるというしくみだ。<br>上記の generate コマンドの実行をすると、コンソールにその結果が出力されるので確認は容易だ。  </p>
-<p>さて、最後のコマンド。deploy。　　</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br><span class="line"># または</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>今回想定している Github リポジトリに公開用ファイルがデプロイされる。<br>そして、Github の当該リポジトリにアクセスをして、Settingsタブを選択する。その後、画面を下のほうにスクロールして、Github Pages の項目を見つければ、そこにたったいまデプロイしたブログのURLが設定されている。そこをクリックすると、結果を表示出来る。これですべてが完了だ。  </p>
-<p>ここまでの作業を長々と説明を加えてきたが、手順をしっかり踏めば、おそらく10分程度でサイト公開までは辿り着けるはずだ。もちろん記事を書く時間は除外する。<br>つまり、記事を書くのが本質であって、それ以外にはなるべくサクッとすませたいというのが今回の狙いでした。  </p>
-<p>Best Regards;</p>
-<h3 id="今週気になったニュース"><a href="#今週気になったニュース" class="headerlink" title="今週気になったニュース"></a>今週気になったニュース</h3><p><a href="https://monoist.atmarkit.co.jp/mn/articles/1904/19/news101.html" target="_blank" rel="noopener">■ PLCの未来像を描く「PLCnext」、用途別アプリなどを順調に拡大 - ハノーバーメッセ2019</a><br>ラダー言語を用いることが多い PLC だが、Visual Studio、Eclipse、MATLAB/Simulink、PC Worx Engineerなどのツールの活用に加え、C#などの活用も進みそうだ。かつ、オープンプラットフォームで制御領域の拡大にも一気に貢献しそうな気配でもある。  </p>
+            <p>　今回はXG-Xの VisionEditor を使った多段位置補正の実例を紹介したいと思います。<br>多段位置補正というのは、複数の画像に対してX軸方向とY軸方向にズレがあるような場合、補正をした後にいろいろな処理や計測をしたい場合に用いられる基本的な構成回路です。  </p>
+<p>　では、まず下記のような2枚の画があると想定します。  </p>
+<div style="text-align: center;"><br><img width="400" alt="画像A" title="図1" src="/blogger/images/site/2019_05_4thweek_02.png"><br></div><br><div style="text-align: center;"><br><img width="400" alt="画像B" title="図2" src="/blogger/images/site/2019_05_4thweek_03.png"><br></div>
 
+<p>画像Aと画像Bでは微妙にX軸方向とY方向がズレていることがわかると思います。<br>この2つの画から、双方のドリンクの取り出し口の内寸のサイズを計測したいと思いますが、当然ながら2つの画像は位置がずれているのでうまく計測することが出来ません。そこで、2つの画像のうちどちらかにおいて基準の位置を決めてやり、もう一方の画像を合わせてあげることができれば、2つの画像の位置は同じ場所になります。これは多数の画像がある場合も同様で、いろいろな方向にズレている場合は、ひとつの基準を決めてやり、その位置に画像を合わせこむことにより常に補正された位置での計測が可能になります。<br>　ここでは画像Aを基準位置としてリファレンスの役割を持たせます。  </p>
+<div style="text-align: center;"><br><img width="400" alt="測定結果" title="図3" src="/blogger/images/site/2019_05_4thweek_04.png"><br></div>
+
+<p>最終的に、このように2つの画像のドリンクの取り出し口の内寸をズレることなく計測できればOKです。  </p>
+<p>　今回のX軸方向を優先した多段補正のユニットの構成は、下記、図4のようになります。  </p>
+<div style="text-align: center;"><br><img width="200" alt="図4" title="図4" src="/blogger/images/site/2019_05_4thweek_05.png"><br></div>
+
+<p>　それでは、ひとつづつ確認したいと思いますが、画像は使用するカメラの解像度に合わせたものであれば、なんでも構いません。その画像を（今回は画像Aのほうをリファレンスとします）画像登録します。<br>はじめに画像Aを利用したX軸の基準線を決めるために　エッジ位置ユニット　を利用して検出条件を 図5 のように設定します。<br>領域設定は「矩形」を設定して領域を決めますが、このときのポイントとして未知の画像がどのくらいズレていても許容できるかを考慮しないとなりません。つまり、リファレンスの画像に対してエッジ（この場合X軸）を決めているラインに、未知の画像のラインが収まらないと同じX軸で位置補正することができなくなってしまいます。「検出方向」や「エッジ方向」は使用する画像により設定値がかわると思いますので適宜調整してください。</p>
+<div style="text-align: center;"><br><img width="400" alt="図5" title="図5" src="/blogger/images/site/2019_05_4thweek_06.png"><br></div>
+
+<p>　つづいて、位置補正ユニット　を組み込みます。<br>このときのポイントは、「参照先設定」の「検出位置指定　1点目」で、位置補正に利用する対象となるユニットを選択します。つまり、ここではX軸の基準線を決めた　エッジ位置ユニット　を参照することになります。これにより、この位置補正ユニットは、X軸の基準線を利用して未知の画像の同じラインを持つエッジを補正することになります。もうひとつ忘れてはならないことは、「基準位置指定方法」のプルダウンメニューで「現在値登録」を選択して、「基準位置登録」ボタンを押します。</p>
+<div style="text-align: center;"><br><img width="300" alt="図6" title="図6" src="/blogger/images/site/2019_05_4thweek_07.png"><br></div>
+
+<p>　次に、Y軸の補正回路を構成しますが、基本的な考え方はX軸と同じで、図7に示すように　Y軸方向のエッジを検出するための　エッジ位置ユニット　を組み込んで領域設定を注意深く決めたらY軸方向のエッジを検出します。ただ、ここでひとつ注意すべきポイントは、Y軸の補正は、本来はY軸方向のみを補正するはずですが、X軸方向の補正ユニット（位置補正ユニット）からX軸方向の補正量を引き継いでいるため、これから組み込むY軸方向の「位置補正ユニット」に対して、XY方向の補正量を引き継ぐことになります。このときの設定が、「領域設定」タブの「位置補正元ユニットID」の項目で、さきほど設定した位置補正ユニットを選択して参照する必要があります。  </p>
+<div style="text-align: center;"><br><img width="400" alt="図7" title="図7" src="/blogger/images/site/2019_05_4thweek_08.png"><br></div>
+
+<p>　そして、Y軸に対する　位置補正ユニット　を組み込みます。<br>X軸に対する位置補正と考え方は同じで、今度は補正元の参照先は　図7で設定した　エッジ位置ユニット　を選択します。同じように現在位置で基準位置登録をするのがポイントになります。  </p>
+<div style="text-align: center;"><br><img width="300" alt="図8" title="図8" src="/blogger/images/site/2019_05_4thweek_09.png"><br></div>
+
+<p>　ここまででX軸方向とY軸方向への多段位置補正の回路の構成を完了しました。<br>では、最後にドリンクの取り出し口の内寸を計測する　エッジ幅ユニット　を組み込んで位置補正した画像を正しく計測するかを確認します。（図9）  </p>
+<div style="text-align: center;"><br><img width="400" alt="図9" title="図9" src="/blogger/images/site/2019_05_4thweek_10.png"><br></div>
+
+<p>　結果は下記のとおりです。<br>画像Aの計測結果は　図10。そして画像Bの計測結果が　図11　です。<br>ズレを補足しつつドリンクの取り出し口の横幅の内寸を測定しているのがわかると思います。  </p>
+<div style="text-align: center;"><br><img width="400" alt="図10" title="図10" src="/blogger/images/site/2019_05_4thweek_11.png"><br></div><br><br><br><div style="text-align: center;"><br><img width="400" alt="図11" title="図11" src="/blogger/images/site/2019_05_4thweek_12.png"><br></div>
+
+<p>当然ながら、多段位置補正は回路を構成する補正ユニットに対して違う画像の情報を与えてしまってはうまく位置補正することが出来ません。必ずリファレンス画像は同じものする必要があります。  </p>
+<p>今回はここまで。  </p>
+<p><br><br></p>
+<h3 id="今週気になったニュース"><a href="#今週気になったニュース" class="headerlink" title="今週気になったニュース"></a>今週気になったニュース</h3><p><a href="https://devblogs.microsoft.com/dotnet/introducing-net-5/" target="_blank" rel="noopener">Microsoft .NET Core 3.0 の後継 .NET 5 2020年にリリース</a><br>ついにここまで来たか！と同時に、やっと整理されたか！ なのか … これはインパクトのある発表です。.NET5は、Windows, Linux, iOS, Android の枠を超えた単一プラットホームを目指しています。というのは今に始まったことではないが、現状の .NET Core, .NET Framework, Xamarin/Mono のNETファミリーがやっと大きな1本の木になるようです。で、中身はなんなのか？ と言うと …  </p>
+<ul>
+<li>ワンコードでの管理</li>
+<li>Objective-C, Swiftもサポート</li>
+<li>Javaとの互換性</li>
+<li>Jitの強化</li>
+</ul>
+<p>… などなど。<br>プレビューリリースは来年前半、正式リリースは秋。毎年11月にメジャーバージョンがリリースされ、偶数バージョンがLTSになるとのこと。  </p>
+<p><br></p>
+<p>Best Regards;  </p>
+<p><a href="mailto:&#101;&#110;&#x64;&#x6f;&#46;&#x6b;&#x65;&#x6e;&#105;&#x63;&#104;&#105;&#64;&#x61;&#101;&#115;&#111;&#102;&#x74;&#x6c;&#x61;&#98;&#x2e;&#x63;&#x6f;&#46;&#x6a;&#112;" target="_blank" rel="noopener">&#101;&#110;&#x64;&#x6f;&#46;&#x6b;&#x65;&#x6e;&#105;&#x63;&#104;&#105;&#64;&#x61;&#101;&#115;&#111;&#102;&#x74;&#x6c;&#x61;&#98;&#x2e;&#x63;&#x6f;&#46;&#x6a;&#112;</a></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/blogger/tags/XG-X/">XG-X</a>
+                </div>
+            </div>
         </div>
         
         
@@ -249,13 +265,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/blogger/2019/05/06/2019-05-1stweek/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Jupyter notebook のインストール</span>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/blogger/2019/05/17/2019-05-3rdweek/">
+                <span class="level-item">検出方向とエッジ方向</span>
+                <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
-        
         
     </div>
 </div>
@@ -817,7 +833,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/blogger/">
                 
-                    <img src="/blogger/images/logo.svg" alt="ブログを開設" height="28">
+                    <img src="/blogger/images/logo.svg" alt="多段位置補正の方法" height="28">
                 
                 </a>
                 <p class="is-size-7">

@@ -151,6 +151,89 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-24T15:00:00.000Z">2019-05-24</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 minutes read (About 2114 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blogger/2019/05/24/2019-05-4thweek/">多段位置補正の方法</a>
+            
+        </h1>
+        <div class="content">
+            <p>　今回はXG-Xの VisionEditor を使った多段位置補正の実例を紹介したいと思います。<br>多段位置補正というのは、複数の画像に対してX軸方向とY軸方向にズレがあるような場合、補正をした後にいろいろな処理や計測をしたい場合に用いられる基本的な構成回路です。  </p>
+<p>　では、まず下記のような2枚の画があると想定します。  </p>
+<div style="text-align: center;"><br><img width="400" alt="画像A" title="図1" src="/blogger/images/site/2019_05_4thweek_02.png"><br></div><br><div style="text-align: center;"><br><img width="400" alt="画像B" title="図2" src="/blogger/images/site/2019_05_4thweek_03.png"><br></div>
+
+<p>画像Aと画像Bでは微妙にX軸方向とY方向がズレていることがわかると思います。<br>この2つの画から、双方のドリンクの取り出し口の内寸のサイズを計測したいと思いますが、当然ながら2つの画像は位置がずれているのでうまく計測することが出来ません。そこで、2つの画像のうちどちらかにおいて基準の位置を決めてやり、もう一方の画像を合わせてあげることができれば、2つの画像の位置は同じ場所になります。これは多数の画像がある場合も同様で、いろいろな方向にズレている場合は、ひとつの基準を決めてやり、その位置に画像を合わせこむことにより常に補正された位置での計測が可能になります。<br>　ここでは画像Aを基準位置としてリファレンスの役割を持たせます。  </p>
+<div style="text-align: center;"><br><img width="400" alt="測定結果" title="図3" src="/blogger/images/site/2019_05_4thweek_04.png"><br></div>
+
+<p>最終的に、このように2つの画像のドリンクの取り出し口の内寸をズレることなく計測できればOKです。  </p>
+<p>　今回のX軸方向を優先した多段補正のユニットの構成は、下記、図4のようになります。  </p>
+<div style="text-align: center;"><br><img width="200" alt="図4" title="図4" src="/blogger/images/site/2019_05_4thweek_05.png"><br></div>
+
+<p>　それでは、ひとつづつ確認したいと思いますが、画像は使用するカメラの解像度に合わせたものであれば、なんでも構いません。その画像を（今回は画像Aのほうをリファレンスとします）画像登録します。<br>はじめに画像Aを利用したX軸の基準線を決めるために　エッジ位置ユニット　を利用して検出条件を 図5 のように設定します。<br>領域設定は「矩形」を設定して領域を決めますが、このときのポイントとして未知の画像がどのくらいズレていても許容できるかを考慮しないとなりません。つまり、リファレンスの画像に対してエッジ（この場合X軸）を決めているラインに、未知の画像のラインが収まらないと同じX軸で位置補正することができなくなってしまいます。「検出方向」や「エッジ方向」は使用する画像により設定値がかわると思いますので適宜調整してください。</p>
+<div style="text-align: center;"><br><img width="400" alt="図5" title="図5" src="/blogger/images/site/2019_05_4thweek_06.png"><br></div>
+
+<p>　つづいて、位置補正ユニット　を組み込みます。<br>このときのポイントは、「参照先設定」の「検出位置指定　1点目」で、位置補正に利用する対象となるユニットを選択します。つまり、ここではX軸の基準線を決めた　エッジ位置ユニット　を参照することになります。これにより、この位置補正ユニットは、X軸の基準線を利用して未知の画像の同じラインを持つエッジを補正することになります。もうひとつ忘れてはならないことは、「基準位置指定方法」のプルダウンメニューで「現在値登録」を選択して、「基準位置登録」ボタンを押します。</p>
+<div style="text-align: center;"><br><img width="300" alt="図6" title="図6" src="/blogger/images/site/2019_05_4thweek_07.png"><br></div>
+
+<p>　次に、Y軸の補正回路を構成しますが、基本的な考え方はX軸と同じで、図7に示すように　Y軸方向のエッジを検出するための　エッジ位置ユニット　を組み込んで領域設定を注意深く決めたらY軸方向のエッジを検出します。ただ、ここでひとつ注意すべきポイントは、Y軸の補正は、本来はY軸方向のみを補正するはずですが、X軸方向の補正ユニット（位置補正ユニット）からX軸方向の補正量を引き継いでいるため、これから組み込むY軸方向の「位置補正ユニット」に対して、XY方向の補正量を引き継ぐことになります。このときの設定が、「領域設定」タブの「位置補正元ユニットID」の項目で、さきほど設定した位置補正ユニットを選択して参照する必要があります。  </p>
+<div style="text-align: center;"><br><img width="400" alt="図7" title="図7" src="/blogger/images/site/2019_05_4thweek_08.png"><br></div>
+
+<p>　そして、Y軸に対する　位置補正ユニット　を組み込みます。<br>X軸に対する位置補正と考え方は同じで、今度は補正元の参照先は　図7で設定した　エッジ位置ユニット　を選択します。同じように現在位置で基準位置登録をするのがポイントになります。  </p>
+<div style="text-align: center;"><br><img width="300" alt="図8" title="図8" src="/blogger/images/site/2019_05_4thweek_09.png"><br></div>
+
+<p>　ここまででX軸方向とY軸方向への多段位置補正の回路の構成を完了しました。<br>では、最後にドリンクの取り出し口の内寸を計測する　エッジ幅ユニット　を組み込んで位置補正した画像を正しく計測するかを確認します。（図9）  </p>
+<div style="text-align: center;"><br><img width="400" alt="図9" title="図9" src="/blogger/images/site/2019_05_4thweek_10.png"><br></div>
+
+<p>　結果は下記のとおりです。<br>画像Aの計測結果は　図10。そして画像Bの計測結果が　図11　です。<br>ズレを補足しつつドリンクの取り出し口の横幅の内寸を測定しているのがわかると思います。  </p>
+<div style="text-align: center;"><br><img width="400" alt="図10" title="図10" src="/blogger/images/site/2019_05_4thweek_11.png"><br></div><br><br><br><div style="text-align: center;"><br><img width="400" alt="図11" title="図11" src="/blogger/images/site/2019_05_4thweek_12.png"><br></div>
+
+<p>当然ながら、多段位置補正は回路を構成する補正ユニットに対して違う画像の情報を与えてしまってはうまく位置補正することが出来ません。必ずリファレンス画像は同じものする必要があります。  </p>
+<p>今回はここまで。  </p>
+<p><br><br></p>
+<h3 id="今週気になったニュース"><a href="#今週気になったニュース" class="headerlink" title="今週気になったニュース"></a>今週気になったニュース</h3><p><a href="https://devblogs.microsoft.com/dotnet/introducing-net-5/" target="_blank" rel="noopener">Microsoft .NET Core 3.0 の後継 .NET 5 2020年にリリース</a><br>ついにここまで来たか！と同時に、やっと整理されたか！ なのか … これはインパクトのある発表です。.NET5は、Windows, Linux, iOS, Android の枠を超えた単一プラットホームを目指しています。というのは今に始まったことではないが、現状の .NET Core, .NET Framework, Xamarin/Mono のNETファミリーがやっと大きな1本の木になるようです。で、中身はなんなのか？ と言うと …  </p>
+<ul>
+<li>ワンコードでの管理</li>
+<li>Objective-C, Swiftもサポート</li>
+<li>Javaとの互換性</li>
+<li>Jitの強化</li>
+</ul>
+<p>… などなど。<br>プレビューリリースは来年前半、正式リリースは秋。毎年11月にメジャーバージョンがリリースされ、偶数バージョンがLTSになるとのこと。  </p>
+<p><br></p>
+<p>Best Regards;  </p>
+<p><a href="mailto:&#101;&#110;&#x64;&#x6f;&#46;&#x6b;&#x65;&#x6e;&#105;&#x63;&#104;&#105;&#64;&#x61;&#101;&#115;&#111;&#102;&#x74;&#x6c;&#x61;&#98;&#x2e;&#x63;&#x6f;&#46;&#x6a;&#112;" target="_blank" rel="noopener">&#101;&#110;&#x64;&#x6f;&#46;&#x6b;&#x65;&#x6e;&#105;&#x63;&#104;&#105;&#64;&#x61;&#101;&#115;&#111;&#102;&#x74;&#x6c;&#x61;&#98;&#x2e;&#x63;&#x6f;&#46;&#x6a;&#112;</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-05-17T16:00:00.000Z">2019-05-17</time>
                 
                 
@@ -231,7 +314,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -349,7 +432,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/blogger/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/blogger/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/blogger/tags/XG-X/" style="font-size: 10px;">XG-X</a> <a href="/blogger/tags/jupyter/" style="font-size: 10px;">jupyter</a>
+        <a href="/blogger/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/blogger/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/blogger/tags/XG-X/" style="font-size: 20px;">XG-X</a> <a href="/blogger/tags/jupyter/" style="font-size: 10px;">jupyter</a>
     </div>
 </div>
 
@@ -363,6 +446,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/blogger/2019/05/24/2019-05-4thweek/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blogger/images/thumbnail.svg" alt="多段位置補正の方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-24T15:00:00.000Z">2019-05-24</time></div>
+                    <a href="/blogger/2019/05/24/2019-05-4thweek/" class="has-link-black-ter is-size-6">多段位置補正の方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -458,7 +560,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -504,7 +606,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blogger/tags/XG-X/">
                         <span class="tag">XG-X</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -540,6 +642,25 @@
         
         <article class="media">
             
+            <a href="/blogger/2019/05/24/2019-05-4thweek/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blogger/images/thumbnail.svg" alt="多段位置補正の方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-24T15:00:00.000Z">2019-05-24</time></div>
+                    <a href="/blogger/2019/05/24/2019-05-4thweek/" class="has-link-black-ter is-size-6">多段位置補正の方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blogger/2019/05/17/2019-05-3rdweek/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/blogger/images/thumbnail.svg" alt="検出方向とエッジ方向">
@@ -632,7 +753,7 @@
                     <span class="level-item">May 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -678,7 +799,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blogger/tags/XG-X/">
                         <span class="tag">XG-X</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
