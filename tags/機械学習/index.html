@@ -2,14 +2,14 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Archives: 2019/4 - A&amp;E Softlab LLC Blogger</title>
+<title>Tag: 機械学習 - A&amp;E Softlab LLC Blogger</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="A&amp;E Softlab LLC Blogger">
-<meta property="og:url" content="https://flowerman.github.io/blogger/archives/2019/04/index.html">
+<meta property="og:url" content="https://flowerman.github.io/blogger/tags/機械学習/index.html">
 <meta property="og:site_name" content="A&amp;E Softlab LLC Blogger">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://flowerman.github.io/blogger/images/og_image.png">
@@ -134,33 +134,95 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-
-<div class="card widget">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        April 2019
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-20T08:40:16.000Z">2019-04-20</time>
-                        <a href="/blogger/2019/04/20/2019-04-3rdweek/" class="has-link-black-ter is-size-6">ブログを開設</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-        </div>
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/blogger/tags">Tags</a></li>
+            <li class="is-active"><a href="#" aria-current="page">機械学習</a></li>
+        </ul>
+        </nav>
     </div>
 </div>
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-07T14:00:00.000Z">2019-06-07</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    19 minutes read (About 2882 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blogger/2019/06/07/2019-06-1stweek/">ペアプロットで可視化、そして、正則化確認</a>
+            
+        </h1>
+        <div class="content">
+            <p>　機械学習を学習するにあたって、まずはじめに直面する課題はおおむね iris だと思いますが、これは非常にシンプルな課題なので、今回はその内容を紹介してみたいと思います。<br>しかし、いきなり機械学習に踏み込む前に統計的手法を用いて、最適な特徴量を選択し、その効果をアルゴリズムで確認する、というところまでを見たいと思います。  </p>
+<p>　環境は、anaconda があるとベストです。<br>anacondaの中の jupyter notebook をコードエディタ、確認用UIとして、機械学習の動作環境として scikit-learn を使用します。　　</p>
+<p>今回の環境は … 以下のとおりです。<br>グラフの描画で seaborn を使用してみようと思います。  </p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pip freeze</span><br><span class="line">&gt; scikit-learn==<span class="hljs-number">0.20</span><span class="hljs-number">.3</span></span><br><span class="line">&gt; seaborn==<span class="hljs-number">0.9</span><span class="hljs-number">.0</span></span><br></pre></td></tr></table></figure>
+<p>　まずは、notebookを作成したら、irisをロードします。<br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In []:</span><br><span class="line">from sklearn.datasets import load_iris</span><br><span class="line">iris = load_iris()</span><br></pre></td></tr></table></figure></p>
+<p>irisの構成を見る前に、簡単にirisの説明を書いておこうと思いますが、わかりやすく言えば植物のアヤメ科のことです。このアヤメ科には多くの属と種が存在しますが、irisのデータセットの中では、かなり小さくまとめられて非常に使いやすくなっています。つまり、いろいろな属性をもったアヤメ科の植物を、さまざまな観点で分類するような頭脳を作ろう、というのが、このiris課題の主眼です。  </p>
+<p>データセットの説明を参照してみます。  </p>
+<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In []:</span><br><span class="line">print(iris.DESCR)</span><br></pre></td></tr></table></figure>
+<p>すると以下のような出力が得られます。  </p>
+<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">Iris Plants Database</span><br><span class="line">====================</span><br><span class="line"></span><br><span class="line">Notes</span><br><span class="line">-----</span><br><span class="line">Data Set Characteristics:</span><br><span class="line">    :Number of Instances: 150 (50 in each of three classes)</span><br><span class="line">    :Number of Attributes: 4 numeric, predictive attributes and the class</span><br><span class="line">    :Attribute Information:</span><br><span class="line">        - sepal length in cm</span><br><span class="line">        - sepal width in cm</span><br><span class="line">        - petal length in cm</span><br><span class="line">        - petal width in cm</span><br><span class="line">        - class:</span><br><span class="line">                - Iris-Setosa</span><br><span class="line">                - Iris-Versicolour</span><br><span class="line">                - Iris-Virginica</span><br><span class="line">    :Summary Statistics:</span><br><span class="line"></span><br><span class="line">    ============== ==== ==== ======= ===== ====================</span><br><span class="line">                    Min  Max   Mean    SD   Class Correlation</span><br><span class="line">    ============== ==== ==== ======= ===== ====================</span><br><span class="line">    sepal length:   4.3  7.9   5.84   0.83    0.7826</span><br><span class="line">    sepal width:    2.0  4.4   3.05   0.43   -0.4194</span><br><span class="line">    petal length:   1.0  6.9   3.76   1.76    0.9490  (high!)</span><br><span class="line">    petal width:    0.1  2.5   1.20  0.76     0.9565  (high!)</span><br><span class="line">    ============== ==== ==== ======= ===== ====================</span><br><span class="line"></span><br><span class="line">    :Missing Attribute Values: None</span><br><span class="line">    :Class Distribution: 33.3% for each of 3 classes.</span><br><span class="line">    :Creator: R.A. Fisher</span><br><span class="line">    :Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)</span><br><span class="line">    :Date: July, 1988</span><br><span class="line"></span><br><span class="line">This is a copy of UCI ML iris datasets.</span><br><span class="line">http://archive.ics.uci.edu/ml/datasets/Iris</span><br><span class="line"></span><br><span class="line">The famous Iris database, first used by Sir R.A Fisher</span><br><span class="line"></span><br><span class="line">This is perhaps the best known database to be found in the</span><br><span class="line">pattern recognition literature.  Fisher&apos;s paper is a classic in the field and</span><br><span class="line">is referenced frequently to this day.  (See Duda &amp; Hart, for example.)  The</span><br><span class="line">data set contains 3 classes of 50 instances each, where each class refers to a</span><br><span class="line">type of iris plant.  One class is linearly separable from the other 2; the</span><br><span class="line">latter are NOT linearly separable from each other.</span><br><span class="line"></span><br><span class="line">References</span><br><span class="line">----------</span><br><span class="line">   - Fisher,R.A. &quot;The use of multiple measurements in taxonomic problems&quot;</span><br><span class="line">     Annual Eugenics, 7, Part II, 179-188 (1936); also in &quot;Contributions to</span><br><span class="line">     Mathematical Statistics&quot; (John Wiley, NY, 1950).</span><br><span class="line">   - Duda,R.O., &amp; Hart,P.E. (1973) Pattern Classification and Scene Analysis.</span><br><span class="line">     (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page 218.</span><br><span class="line">   - Dasarathy, B.V. (1980) &quot;Nosing Around the Neighborhood: A New System</span><br><span class="line">     Structure and Classification Rule for Recognition in Partially Exposed</span><br><span class="line">     Environments&quot;.  IEEE Transactions on Pattern Analysis and Machine</span><br><span class="line">     Intelligence, Vol. PAMI-2, No. 1, 67-71.</span><br><span class="line">   - Gates, G.W. (1972) &quot;The Reduced Nearest Neighbor Rule&quot;.  IEEE Transactions</span><br><span class="line">     on Information Theory, May 1972, 431-433.</span><br><span class="line">   - See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&quot;s AUTOCLASS II</span><br><span class="line">     conceptual clustering system finds 3 classes in the data.</span><br><span class="line">   - Many, many more ...</span><br></pre></td></tr></table></figure>
+<p>注目をしたいのは、Attribute Information と言う項目で、ここにはどのような属性が収録されているのか、ということが説明されています。<br>ガクの長さと幅、花びらの長さと幅、そして class には Iris-Setosa, Iris-Versicolour, Iris-Virginica という3種類のアヤメが定義されています。この分類問題は、ガクや花びらの長さや大きさを学習して、どのアヤメの種類に分類されるのか？　といういわゆる　分類問題　にあたります。<br>前述の属性は個体を表す情報としての　特徴量　とも呼ばれますが、その内容は以下のコードで確認できます。  </p>
+<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In []:</span><br><span class="line">iris.data.shape</span><br><span class="line"></span><br><span class="line">Out []:</span><br><span class="line">(150, 4)</span><br></pre></td></tr></table></figure>
+<p>特徴量は4種類。つまり、ガクの長さと幅、花びらの長さと幅の4つです。データ数は150点収録されているようです。<br>アヤメの種別。classも確認してみます。  </p>
+<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In []:</span><br><span class="line">print(iris.target_names)</span><br><span class="line"></span><br><span class="line">Out []:</span><br><span class="line">[&apos;setosa&apos; &apos;versicolor&apos; &apos;virginica&apos;]</span><br></pre></td></tr></table></figure>
+<p>3種類のアヤメを表現している出力が得られます。<br>では、データセットの内容が実際にはどんな雰囲気なのかを確認してみます。これは、pandasのデータフレームにセットしてあげれば簡単に参照することができます。  </p>
+<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In []:</span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(iris.data, columns=iris.feature_names)</span><br><span class="line">df.head(5)</span><br></pre></td></tr></table></figure>
+<p>df.head(5)というコードはデータセットの先頭5件をピックアップして表示するという意味です。その結果、下のような出力が得られます。<br>左から、ガクの長さ、幅、花びらの長さ、幅　と表示されています。  </p>
+<p><br></p>
+<div style="text-align: left;"><br><img width="400" alt="画像1" title="図1" src="/blogger/images/site/2019_06_1stweek/2019_06_1stweek_01.png"><br></div><br><br><br><br>このデータセットの中では、classは 0, 1, 2 と表されているので、わかりやすいようにアヤメの種別を表す文字列に変換します。<br>targetの列を判定して、それぞれ置き換えます。<br><br><figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In []:</span><br><span class="line">df[&apos;target&apos;] = iris.target</span><br><span class="line">df.loc[df[&apos;target&apos;] == 0, &apos;target&apos;] = &quot;setosa&quot;</span><br><span class="line">df.loc[df[&apos;target&apos;] == 1, &apos;target&apos;] = &quot;versicolor&quot;</span><br><span class="line">df.loc[df[&apos;target&apos;] == 2, &apos;target&apos;] = &quot;virginica&quot;</span><br><span class="line">df.head(5)</span><br></pre></td></tr></table></figure><br><br>確認してみます。<br><br><br><br><div style="text-align: left;"><br><img width="440" alt="画像2" title="図2" src="/blogger/images/site/2019_06_1stweek/2019_06_1stweek_02.png"><br></div><br><br><br><br>データセット全体の要約統計量も確認しておきます。<br><br><br><br><div style="text-align: left;"><br><img width="450" alt="画像3" title="図3" src="/blogger/images/site/2019_06_1stweek/2019_06_1stweek_03.png"><br></div>
+
+<p>　ここまでで準備が整いました。<br>　今回の課題は、各特徴量を学習して、3種類のどのアヤメに分類したらよいのか？　という内容となるわけですが、ここにポイントとなるのは、どの特徴量をとれば正しく分類できるのかの見通しを立てないとなりません。簡単なデータであれば推測も成り立つかもしれませんが、仮に巨大なデータセットを前にしたときなどは、その方法では対応できません。そこで比較的手軽な方法として統計的な根拠を得るためにペアプロットを試してみます。コード自体はほとんどシンプルに書けます。<br>まず seaborn が必要なことに注意します。  </p>
+<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In []:</span><br><span class="line">import seaborn as sb</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">sb.pairplot(df, kind=&apos;reg&apos;, hue=&quot;target&quot;)</span><br></pre></td></tr></table></figure>
+<p>このコードだけで各特徴量の組み合わせごとに散布図を出力できます。  </p>
+<p><br></p>
+<p><div style="text-align: left;"><br><img width="500" alt="画像4" title="図4" src="/blogger/images/site/2019_06_1stweek/2019_06_1stweek_04.png"><br></div><br><br></p>
+<p>特徴量の組み合わせを観察しますが、比較的分散が少ないので、どの特徴量を選択しても大差ないようにも見えます。  </p>
+<p>　では、実際の分類を試してみますが、今回実行したいのは、作成したモデルの決定境界を観察してみることにポイントを置きたいと思います。ですので、正答率の評価というよりは、どのハイパーパラメータが実際に効いてくるのか、という点に着目してみようと思います。<br>訓練データを作成します。本来は、ここでvalidation, testの単位に分割しますが、ここではチューニングの方向性の確認という視点でいきます。使用する特徴量は、ガクと花びらのそれぞれの長さを採用します。　　<br>Xに訓練データを投入し、yには教師データとしてアヤメを表す class を投入します。    </p>
+<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In []:</span><br><span class="line">X = iris.data[:, [0, 2]]</span><br><span class="line">y = iris.target</span><br></pre></td></tr></table></figure>
+<p>データを可視化するための部品を作成しておきます。  </p>
+<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">In []:</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"># グラフの設定</span><br><span class="line">h = .02  # step size in the mesh</span><br><span class="line">x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5</span><br><span class="line">y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5</span><br><span class="line">xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))</span><br><span class="line"></span><br><span class="line">def decision_boundary(clf, X, y, ax, title):</span><br><span class="line">    clf.fit(X, y)</span><br><span class="line"></span><br><span class="line">    # decision boundaryを描画します。    </span><br><span class="line">    Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])</span><br><span class="line"></span><br><span class="line">    # 結果のプロット</span><br><span class="line">    Z = Z.reshape(xx.shape)</span><br><span class="line">    ax.pcolormesh(xx, yy, Z, cmap=plt.cm.Paired)</span><br><span class="line"></span><br><span class="line">    # 訓練データのプロット</span><br><span class="line">    ax.scatter(X[:, 0], X[:, 1], c=y, edgecolors=&apos;k&apos;, cmap=plt.cm.Paired)</span><br><span class="line"></span><br><span class="line">    # グラフのラベル</span><br><span class="line">    ax.set_title(title)</span><br><span class="line">    ax.set_xlabel(&apos;sepal length&apos;)</span><br><span class="line">    ax.set_ylabel(&apos;petal length&apos;)</span><br></pre></td></tr></table></figure>
+<p>採用するアルゴリズムはサポートベクターマシーンでいきたいと思います。<br>法定境界の確認なので、よりわかりやすく非線形な分離を可視化したいと思います。  </p>
+<figure class="highlight plain hljs"><figcaption><span>Notebook</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In []:</span><br><span class="line">from sklearn.svm import SVC</span><br><span class="line"></span><br><span class="line">fig, axes = plt.subplots(3, 3, figsize=(10, 10))</span><br><span class="line"></span><br><span class="line">for ax_row, C in zip(axes, [0.01, 1, 100]):</span><br><span class="line">    for ax, gamma in zip(ax_row, [0.1, 1, 10]):</span><br><span class="line">        title = &quot;C=%s, gamma=%s&quot;% (C, gamma)</span><br><span class="line">        clf = SVC(C=C, gamma=gamma)</span><br><span class="line">        decision_boundary(clf, X, y, ax, title)</span><br></pre></td></tr></table></figure>
+<p>サポートベクターに与えるパラメータに対して、それぞれ 0.1, 1, 10 を試しています。正則化を表していますが、機械学習においては、偏ったデータに対して個別に対応してしまうと小さな誤差を許容してしまうモデルが出来上がってしまい、個別最適化されたようなゆがんだモデルが、適切な予測値を返せなくなります。この状態を過学習と言います。学習データの中の、ごく一部の例外的なデータに対して過度に対応したモデルということになります。そのために、機械学習では過学習になるのをふせぐために極端なデータに対してペナルティを与えますが、このことを正則化と言います。</p>
+<p>さて、出力は …？  </p>
+<p><br></p>
+<p><div style="text-align: left;"><br><img width="500" alt="画像5" title="図5" src="/blogger/images/site/2019_06_1stweek/2019_06_1stweek_05.png"><br></div><br><br></p>
+<p>右にいくほど、分類がきっちりしすぎています。<br>一般的に学習データの件数が少ないと過学習に陥りやすいので、できるだけ汎化性能を高く保つ対策が必要になります。  </p>
+<p><br><br></p>
+<h3 id="今週気になったニュース"><a href="#今週気になったニュース" class="headerlink" title="今週気になったニュース"></a>今週気になったニュース</h3><p><a href="https://www.youtube.com/watch?v=GtVcDo1G8r8" target="_blank" rel="noopener">de:code2019 基調講演</a><br>今年もこの時期になりましたが、着々とAI拡充が進んでいる感じがあります。気になる人はオンデマンド配信で。  </p>
+<p><a href="https://monoist.atmarkit.co.jp/mn/articles/1906/04/news010.html" target="_blank" rel="noopener">ロボットサービスの安全マネジメントに関する新規格を制定</a><br>この分野では、まだ安全衛生に関する定義が追いついていなかったのですね …。　　<br>今週、最も気になったトピックではありました。  </p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
 
 
 </div>
